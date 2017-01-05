@@ -42,10 +42,11 @@ namespace IntroCSharp
                     Random random = new Random();
                     int x = random.Next(0, 5);
 
-                    
-                    player1.Attack(zom1);                   
-                    Console.WriteLine(player1.Health);
-                    Console.WriteLine(zom1.Health);
+
+                    Zom[x].Attack(Play[x]);
+                    Play[x].Attack(Zom[x]);            
+                    Console.WriteLine(Zom[x].Health);
+                    Console.WriteLine(Play[x].Health);
                     Console.ReadLine();
                 }
             }
