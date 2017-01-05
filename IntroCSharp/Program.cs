@@ -74,7 +74,7 @@ namespace IntroCSharp
             get { return attackPower; }
         }
         public virtual bool Attack(Entity e)
-        {
+        {           
             return true;
         }
         private string name;
@@ -87,8 +87,6 @@ namespace IntroCSharp
         public Zombie(int a, int b) { }
         override public bool Attack(Entity e)
         {
-            
-
             return true;
         }
     }
