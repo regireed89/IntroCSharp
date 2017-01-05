@@ -10,20 +10,45 @@ namespace IntroCSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            //Console.WriteLine("Hello World");
 
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
+            //Console.WriteLine("Press any key to exit.");
+            //Console.ReadKey();
 
-            List<Student> students = new List<Student>();
-            for (int i = 0; i < 10; i++)
+            //List<Student> students = new List<Student>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Student s = new Student();
+            //    students.Add(s);
+            //    Console.WriteLine(s.ToString());
+            //}
             {
-                Student s = new Student();
-                students.Add(s);
-                Console.WriteLine(s.ToString());
+                Zombie z = new Zombie(500, 100);
+                Player p = new Player(500, 100);
+
+                List<Zombie> Zom = new List<Zombie>();
+                for (int i = 0; i < 5; i++)
+                {                    
+                    Zom.Add(z);
+                    
+                }
+                List<Player> Play = new List<Player>();
+                for (int i = 0; i < 5; i++)
+                {
+                    Play.Add(p);
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    Random random = new Random();
+                    int x = random.Next(0, 5);
+
+                    
+                    player1.Attack(zom1);                   
+                    Console.WriteLine(player1.Health);
+                    Console.WriteLine(zom1.Health);
+                    Console.ReadLine();
+                }
             }
-
-
         }
     }
 
@@ -58,45 +83,56 @@ namespace IntroCSharp
     class Entity
     {
         public Entity() { }
-        public Entity(int h,int att)
+        public Entity(int h, int att)
         {
             health = h;
             attackPower = att;
         }
         private int health;
-        protected int Health
+        public int Health
         {
             get { return health; }
+            set { health = value; }
         }
         private int attackPower;
         public int AttackPower
         {
             get { return attackPower; }
+            set { attackPower = value; }
         }
         public virtual bool Attack(Entity e)
-        {           
+        {
+
+            e.Health -= AttackPower;
             return true;
         }
         private string name;
         public string Name;
     }
 
-   class Zombie:Entity
+    class Zombie : Entity
     {
         public Zombie() { }
-        public Zombie(int a, int b) { }
+        public Zombie(int a, int b)
+        {
+            Health = a;
+            AttackPower = b;
+
+        }
         override public bool Attack(Entity e)
         {
+            e.Health -= AttackPower;
             return true;
         }
     }
 
-    class Player:Entity
+    class Player : Entity
     {
         public Player() { }
-        public Player (int a, int b) { }
+        public Player(int a, int b) : base(a,b) { }
         override public bool Attack(Entity e)
         {
+            e.Health -= AttackPower;
             return true;
         }
         public bool Defend() { return true; }
