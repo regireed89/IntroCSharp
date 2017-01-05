@@ -1,0 +1,6 @@
+C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.exe.config
+C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.exe
+C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.pdb
+C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.csprojResolveAssemblyReference.cache
+C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.exe
+C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.pdb
