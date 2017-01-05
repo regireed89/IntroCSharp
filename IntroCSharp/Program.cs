@@ -88,6 +88,7 @@ namespace IntroCSharp
         override public bool Attack(Entity e)
         {
             
+
             return true;
         }
     }
