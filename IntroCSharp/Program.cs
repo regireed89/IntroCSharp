@@ -28,9 +28,9 @@ namespace IntroCSharp
 
                 List<Zombie> Zom = new List<Zombie>();
                 for (int i = 0; i < 5; i++)
-                {                    
+                {
                     Zom.Add(z);
-                    
+
                 }
                 List<Player> Play = new List<Player>();
                 for (int i = 0; i < 5; i++)
@@ -43,9 +43,7 @@ namespace IntroCSharp
                     int x = random.Next(0, 5);
 
 
-                    Zom[x].Attack(Play[x]);
-                    Play[x].Attack(Zom[x]);            
-                    Console.WriteLine(Zom[x].Health);
+                    Zom[x].Attack(Play[x]);       
                     Console.WriteLine(Play[x].Health);
                     Console.ReadLine();
                 }
@@ -130,7 +128,7 @@ namespace IntroCSharp
     class Player : Entity
     {
         public Player() { }
-        public Player(int a, int b) : base(a,b) { }
+        public Player(int a, int b) : base(a, b) { }
         override public bool Attack(Entity e)
         {
             e.Health -= AttackPower;
