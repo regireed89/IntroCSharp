@@ -43,8 +43,79 @@ namespace Exercises
 
         public static void rps()
         {
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
+            int x = 9;
+            while (x != 0)
+            {
+                Random random = new Random();
+                int b = random.Next(1, 4);
+                x = Convert.ToInt32(Console.ReadLine());
+                Console.Clear(); 
+                if (x == 1)
+                {
+                    Console.WriteLine("You choose rock");
+                    if (b == 1)
+                    {
+                        Console.WriteLine("Computer choose rock");
+                        Console.WriteLine("its a tie");
+                    }
+                    else if (b == 2)
+                    {
+                        Console.WriteLine("Computer choose paper");
+                        Console.WriteLine("you lose");
+                    }
+                    else if (b == 3)
+                    {
+                        Console.WriteLine("Computer choose scissor");
+                        Console.WriteLine("you win");
+                    }
+                }
+                else if (x == 2)
+                {
+                    Console.WriteLine("You choose paper");
+                    if (b == 1)
+                    {
+                        Console.WriteLine("Computer choose rock");
+                        Console.WriteLine("you lose");
+                    }
+                    else if (b == 2)
+                    {
+                        Console.WriteLine("Computer choose paper");
+                        Console.WriteLine("its a tie");
+                    }
+                    else if (b == 3)
+                    {
+                        Console.WriteLine("Computer choose scissor");
+                        Console.WriteLine("you win");
+                    }
+                }
+                else if (x == 3)
+                {
+                    Console.WriteLine("You choose scissor");
+                    if (b == 1)
+                    {
+                        Console.WriteLine("Computer choose rock");
+                        Console.WriteLine("you lose");
+                    }
+                    else if (b == 2)
+                    {
+                        Console.WriteLine("Computer choose paper");
+                        Console.WriteLine("you win");
+                    }
+                    else if (b == 3)
+                    {
+                        Console.WriteLine("Computer choose scissor");
+                        Console.WriteLine("its a tie");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("wrong input");
+                }
+            }
+
+
+
+
             Console.ReadLine();
 
 
