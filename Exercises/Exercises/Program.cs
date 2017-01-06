@@ -41,7 +41,7 @@ namespace Exercises
         }
 
 
-        public string rps()
+        public static void rps()
         {
             int x = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
