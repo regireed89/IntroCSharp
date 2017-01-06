@@ -31,6 +31,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // radioButton1
@@ -55,6 +56,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Paper";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButton2_MouseClick);
             // 
             // radioButton3
             // 
@@ -66,12 +68,23 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Scissor";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButton3_MouseClick);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(33, 207);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(994, 554);
+            this.webBrowser1.TabIndex = 3;
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 417);
+            this.ClientSize = new System.Drawing.Size(1039, 773);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -87,6 +100,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 
