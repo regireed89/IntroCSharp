@@ -4,3 +4,6 @@ C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\bin\Debug\IntroC
 C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.csprojResolveAssemblyReference.cache
 C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.exe
 C:\Users\reginald.reed\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.pdb
+C:\Users\marqj\OneDrive\Documents\GitHub\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.exe.config
+C:\Users\marqj\OneDrive\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.exe
+C:\Users\marqj\OneDrive\Documents\GitHub\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.pdb
