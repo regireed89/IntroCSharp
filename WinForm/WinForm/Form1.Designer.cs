@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 773);
+            this.ClientSize = new System.Drawing.Size(733, 443);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
