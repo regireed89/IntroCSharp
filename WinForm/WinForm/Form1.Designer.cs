@@ -72,10 +72,12 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(33, 207);
+            this.webBrowser1.AccessibleDescription = "";
+            this.webBrowser1.AccessibleName = "";
+            this.webBrowser1.Location = new System.Drawing.Point(12, 130);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(994, 554);
+            this.webBrowser1.Size = new System.Drawing.Size(709, 301);
             this.webBrowser1.TabIndex = 3;
             this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 

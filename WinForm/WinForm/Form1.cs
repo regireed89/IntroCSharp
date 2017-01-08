@@ -20,9 +20,8 @@ namespace WinForm
         }
 
         private void radioButton1_MouseClick(object sender, MouseEventArgs e)
-        {       
-            WebBrowser web = new WebBrowser();           
-           
+        {
+            Process.Start("https://en.wikipedia.org/wiki/Rock_(geology)");
         }
 
         private void radioButton2_MouseClick(object sender, MouseEventArgs e)
@@ -34,5 +33,7 @@ namespace WinForm
         {
             
         }
+
+        
     }
 }
