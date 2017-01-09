@@ -21,17 +21,8 @@ namespace WinForm
 
         private void radioButton1_MouseClick(object sender, MouseEventArgs e)
         {
-            Process.Start("https://en.wikipedia.org/wiki/Rock_(geology)");
-        }
+         
 
-        private void radioButton2_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-        private void radioButton3_MouseClick(object sender, MouseEventArgs e)
-        {
-            
         }
 
         
