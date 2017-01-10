@@ -11,9 +11,9 @@ using System.Diagnostics;
 
 namespace WinForm
 {
-    public partial class Form1 : Form
+    public partial class RPS : Form
     {
-        public Form1()
+        public RPS()
         {
             InitializeComponent();
         }
