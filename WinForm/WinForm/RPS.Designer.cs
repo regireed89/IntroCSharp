@@ -45,7 +45,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Rock";
             this.radioButton1.UseVisualStyleBackColor = true;
-          
             this.radioButton1.Click += new System.EventHandler(this.radioButton1_Click);
             // 
             // radioButton2
@@ -79,6 +78,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(294, 209);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
+           
             // 
             // button1
             // 
