@@ -45,6 +45,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Rock";
             this.radioButton1.UseVisualStyleBackColor = true;
+          
             this.radioButton1.Click += new System.EventHandler(this.radioButton1_Click);
             // 
             // radioButton2
@@ -89,7 +90,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // RPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +100,7 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Name = "Form1";
+            this.Name = "RPS";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

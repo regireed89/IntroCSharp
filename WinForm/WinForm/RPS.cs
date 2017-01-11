@@ -38,7 +38,6 @@ namespace WinForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             Random rng = new Random();
             int ted = rng.Next(1, 4);
             if (bob == 1)
@@ -95,12 +94,8 @@ namespace WinForm
                     richTextBox1.Text = "com choose scissor";
                     MessageBox.Show("ITS A TIE");
                 }
-            }
-            else
-            {
-                MessageBox.Show("please choose again");
-            }
-        }
+            }            
+        }       
     }
 }
 
