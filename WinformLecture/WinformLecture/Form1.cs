@@ -16,48 +16,45 @@ namespace WinformLecture
         {
             InitializeComponent();
         }
-        delegate int onClick();
-        Player Regi = new Player(0,0);
-        
-        int valMax()
-        {
-            return progressBar1.Maximum += 100;
-        }
-        
-        
+        Player Regi = new Player();
         private void button1_Click(object sender, EventArgs e)
         {
-            onClick a = valMax;
             Regi.Experience += 10;
-            progressBar1.Value = Regi.Experience;
-            
-        }      
+        }
     }
+
 
     class Player
     {
-       public Player() { }
-        public Player(int l, int e)
+        public Player()
         {
-            m_level = l;
-            m_experience = e; 
+            m_experience = 0;
+            m_level = 1;
+            //onLevelUp(this);
         }
         private int m_experience;
         public int Experience
         {
-            get{ return m_experience; }
+            get { return m_experience; }
             set { m_experience = value; }
         }
         private int m_level;
-            public int Level
+        public int Level
         {
             get { return m_level; }
             set { m_level = value; }
-        }        
+        }
+        public delegate void OnLevelUp(Player p);
+        public OnLevelUp onLevelUp;
+        public int Exp(Player p)
+        {
+
+
+        }
     }
-    
-        
-    
+
+
+
 
 
 }
