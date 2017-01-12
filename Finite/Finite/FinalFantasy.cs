@@ -15,7 +15,7 @@ namespace Finite
             public bool AddParty(Party p)
             {
                 parties.Add(p);
-                return true;
+                return true;                
             }                      
         }
 
