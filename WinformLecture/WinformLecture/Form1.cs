@@ -51,7 +51,7 @@ namespace WinformLecture
             {
                 m_experience = 0;
                 m_level = 1;
-                //onLevelUp(this);
+                
             }
             private int m_experience;
             public int Experience
