@@ -12,37 +12,39 @@ namespace WinformLecture
 {
     public partial class Form1 : Form
     {
+        Player Regi = new Player();
         public Form1()
         {
-            InitializeComponent();           
-        }
-
-        Player Regi = new Player();
+            InitializeComponent();
+            Regi.levelUp += AddXP;//assign AddXP fuction to delegate
+            Regi.onLevelUp += UpdateText;//assign UpdateText fuction to delegate
+        }        
         private void button1_Click(object sender, EventArgs e)
         {
-            Regi.levelUp += AddXP;
-            Regi.onLevelUp += UpdateText;            
+            Regi.levelUp.Invoke(Regi);
+            Regi.onLevelUp.Invoke(Regi);
+                       
         }
 
         private void UpdateText(Player p)
         {
-            richTextBox1.Text = p.Experience.ToString();
-            richTextBox2.Text = p.Level.ToString();
+            richTextBox1.Text = p.Experience.ToString();//prints experience to textbox in winform 
+            richTextBox2.Text = p.Level.ToString();//prints level to textbox in winforms
         }
         private void AddXP(Player p)
         {
-            p.Experience += 10;
-            progressBar1.Value = p.Experience;
-            if (progressBar1.Value == progressBar1.Maximum)
+            p.Experience += 10;//adds 10 experience points to players experience
+            progressBar1.Value = p.Experience;//assigns player experience to progress bar 
+            if (progressBar1.Value == progressBar1.Maximum)//checks if progress bar value is equal to the maximum value
             {
-                p.Level += 1;
-                progressBar1.Maximum *= 2;
-                progressBar1.Minimum = p.Experience;
-                progressBar1.Value = progressBar1.Minimum;
+                p.Level += 1;//player level goes up by one if condition is met
+                progressBar1.Maximum *= 2;//the maximum value for progress bar multiplies by 2 when condition is met
+                progressBar1.Minimum = p.Experience;//player experience after level up becomes the new minimum value for progress bar 
+                progressBar1.Value = progressBar1.Minimum;//sets progress bar to the minimum value 
             }
         }
         
-        
+
         class Player
         {
             public Player()
