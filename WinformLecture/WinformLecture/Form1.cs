@@ -21,8 +21,8 @@ namespace WinformLecture
         }        
         private void button1_Click(object sender, EventArgs e)
         {
-            Regi.levelUp.Invoke(Regi);
-            Regi.onLevelUp.Invoke(Regi);
+            Regi.levelUp.Invoke(Regi);//invokes methods assigned to delegates on button click
+            Regi.onLevelUp.Invoke(Regi);//invokes methods assigned to delegates on button click
                        
         }
 
@@ -35,12 +35,12 @@ namespace WinformLecture
         {
             p.Experience += 10;//adds 10 experience points to players experience
             progressBar1.Value = p.Experience;//assigns player experience to progress bar 
-            if (progressBar1.Value == progressBar1.Maximum)//checks if progress bar value is equal to the maximum value
+            if (progressBar1.Value == progressBar1.Maximum)//checks if progress bar current value is equal to the progress bar maximum value
             {
                 p.Level += 1;//player level goes up by one if condition is met
                 progressBar1.Maximum *= 2;//the maximum value for progress bar multiplies by 2 when condition is met
-                progressBar1.Minimum = p.Experience;//player experience after level up becomes the new minimum value for progress bar 
-                progressBar1.Value = progressBar1.Minimum;//sets progress bar to the minimum value 
+                progressBar1.Minimum = p.Experience;//current player experience after level up becomes the new minimum value for progress bar 
+                progressBar1.Value = progressBar1.Minimum;//sets progress bar value to the minimum value 
             }
         }
         
