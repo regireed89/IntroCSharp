@@ -15,51 +15,59 @@ namespace WinformLecture
         public Form1()
         {
             InitializeComponent();
+            
         }
+
         Player Regi = new Player();
-        
         private void button1_Click(object sender, EventArgs e)
+        {           
+            AddXP(Regi);
+            UpdateText(Regi);
+         }
+
+        private void UpdateText(Player p)
         {
-            Regi.Experience += 10;
-            progressBar1.Value = Regi.Experience;
-            richTextBox1.Text = Regi.Experience.ToString();
-            richTextBox2.Text = Regi.Level.ToString();
+            richTextBox1.Text = p.Experience.ToString();
+            richTextBox2.Text = p.Level.ToString();
+        }
+        private void AddXP(Player p)
+        {
+            p.Experience += 10;
+            progressBar1.Value = p.Experience;
             if (progressBar1.Value == progressBar1.Maximum)
             {
-                Regi.Level += 1;
+                p.Level += 1;
                 progressBar1.Maximum *= 2;
-                progressBar1.Minimum = Regi.Experience;
-                progressBar1.Value = progressBar1.Minimum;               
+                progressBar1.Minimum = p.Experience;
+                progressBar1.Value = progressBar1.Minimum;
             }
         }
-    }
-
-    class Player
-    {
-        public Player()
+        
+        
+        class Player
         {
-            m_experience = 0;
-            m_level = 1;
-            //onLevelUp(this);
+            public Player()
+            {
+                m_experience = 0;
+                m_level = 1;
+                //onLevelUp(this);
+            }
+            private int m_experience;
+            public int Experience
+            {
+                get { return m_experience; }
+                set { m_experience = value; }
+            }
+            private int m_level;
+            public int Level
+            {
+                get { return m_level; }
+                set { m_level = value; }
+            }
+            public delegate void OnLevelUp(Player p);
+            public OnLevelUp onLevelUp;
+            public delegate void LevelUp(Player p);
+            public LevelUp levelUp;
         }
-        private int m_experience;
-        public int Experience
-        {
-            get { return m_experience; }
-            set { m_experience = value; }
-        }
-        private int m_level;
-        public int Level
-        {
-            get { return m_level; }
-            set { m_level = value; }
-        }
-        public delegate void OnLevelUp(Player p);
-        public OnLevelUp onLevelUp;        
-    }
-
-
-
-
-
+    }   
 }
