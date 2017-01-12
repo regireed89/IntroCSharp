@@ -14,16 +14,15 @@ namespace WinformLecture
     {
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
         }
 
         Player Regi = new Player();
         private void button1_Click(object sender, EventArgs e)
-        {           
-            AddXP(Regi);
-            UpdateText(Regi);
-         }
+        {
+            Regi.levelUp += AddXP;
+            Regi.onLevelUp += UpdateText;            
+        }
 
         private void UpdateText(Player p)
         {
