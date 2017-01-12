@@ -17,12 +17,22 @@ namespace WinformLecture
             InitializeComponent();
         }
         Player Regi = new Player();
+        
         private void button1_Click(object sender, EventArgs e)
         {
             Regi.Experience += 10;
+            progressBar1.Value = Regi.Experience;
+            richTextBox1.Text = Regi.Experience.ToString();
+            richTextBox2.Text = Regi.Level.ToString();
+            if (progressBar1.Value == progressBar1.Maximum)
+            {
+                Regi.Level += 1;
+                progressBar1.Maximum *= 2;
+                progressBar1.Minimum = Regi.Experience;
+                progressBar1.Value = progressBar1.Minimum;               
+            }
         }
     }
-
 
     class Player
     {
@@ -45,12 +55,7 @@ namespace WinformLecture
             set { m_level = value; }
         }
         public delegate void OnLevelUp(Player p);
-        public OnLevelUp onLevelUp;
-        public int Exp(Player p)
-        {
-
-
-        }
+        public OnLevelUp onLevelUp;        
     }
 
 
