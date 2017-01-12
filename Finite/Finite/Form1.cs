@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Finite
 {
     public partial class Form1 : Form
@@ -15,8 +16,8 @@ namespace Finite
         public Form1()
         {
             InitializeComponent();
-        }
+        }        
 
-        
     }
+    
 }
