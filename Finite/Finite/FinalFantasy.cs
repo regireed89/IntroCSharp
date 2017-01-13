@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Finite
 {
@@ -25,15 +26,27 @@ namespace Finite
             parties.Add(p);
             return true;
         }
+        
+        public Character ActiveCharacter
+        {            
+            get
+            {
+                Party p1 = parties[0];
+                return p1.characters[0];
+            }
+        }
     }
     class Party
     {
-        public Party() { characters = new List<Character>(); }
-        List<Character> characters;
-       
-        public bool EndTurn()
+        public Party()
         {
-            return false;
+            characters = new List<Character>();
+        }
+        public List<Character> characters;
+       
+        public void EndTurn()
+        {
+            
         }
         /// <summary>
         /// adds a new character to a list of characters  
@@ -45,21 +58,26 @@ namespace Finite
             characters.Add(c);
             return false;
         }
+        public delegate void OnPartyEnd();
+        OnPartyEnd onPartyEnd;
+        public bool NextPlayer() { return false; }
     }
     class Character
     {
-        public Character() { }
+        public Character()
+        {
+           
+        }
         public bool Attack()
         {
             return false;
         }
         public bool Defend()
-        {
+        {          
             return false;
         }        
         public delegate void OnEndTurn();
-
-        OnEndTurn onEndTurn;
+        public OnEndTurn onEndTurn;
         public void EndTurn()
         {
             if (onEndTurn != null)
@@ -68,13 +86,5 @@ namespace Finite
             }
         }
     }
-    class TurnManager
-    {
-        public TurnManager() { }
-        public void SwitchTurn()
-        {
-            
-        }
 
-    }
 }
