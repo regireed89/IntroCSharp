@@ -15,6 +15,11 @@ namespace Finite
     {
         public Combat() { parties = new List<Party>(); }
         List<Party> parties;
+        /// <summary>
+        /// adds a new party to a list of parties
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public bool AddParty(Party p)
         {
             parties.Add(p);
@@ -25,10 +30,16 @@ namespace Finite
     {
         public Party() { characters = new List<Character>(); }
         List<Character> characters;
+       
         public bool EndTurn()
         {
             return false;
         }
+        /// <summary>
+        /// adds a new character to a list of characters  
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public bool AddCharacter(Character c)
         {
             characters.Add(c);
@@ -47,10 +58,7 @@ namespace Finite
             return false;
         }        
         public delegate void OnEndTurn();
-        public void text()
-        {
-            
-        }
+
         OnEndTurn onEndTurn;
         public void EndTurn()
         {
