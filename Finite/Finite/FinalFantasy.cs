@@ -24,6 +24,7 @@ namespace Finite
         public bool AddParty(Party p)
         {
             parties.Add(p);
+            
             return true;
         }
         
@@ -35,6 +36,7 @@ namespace Finite
                 return p1.characters[0];
             }
         }
+        public bool NextParty() { return false; }
     }
     class Party
     {
@@ -56,11 +58,16 @@ namespace Finite
         public bool AddCharacter(Character c)
         {
             characters.Add(c);
+            c.onEndTurn += NextPlayer;
             return false;
         }
         public delegate void OnPartyEnd();
         OnPartyEnd onPartyEnd;
-        public bool NextPlayer() { return false; }
+        public int ActiveIndex = 0;
+        public bool NextPlayer()
+        {            
+            return false;
+        }
     }
     class Character
     {
@@ -76,15 +83,16 @@ namespace Finite
         {          
             return false;
         }        
-        public delegate void OnEndTurn();
+        
+        public delegate bool OnEndTurn();
         public OnEndTurn onEndTurn;
+        
         public void EndTurn()
-        {
+        {           
             if (onEndTurn != null)
             {
                 onEndTurn.Invoke();
             }
         }
     }
-
 }
