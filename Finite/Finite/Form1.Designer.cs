@@ -54,20 +54,20 @@
             // 
             this.button2.Location = new System.Drawing.Point(185, 310);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 109);
+            this.button2.Size = new System.Drawing.Size(135, 111);
             this.button2.TabIndex = 1;
             this.button2.Text = "Defend";
             this.button2.UseVisualStyleBackColor = true;
-            
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(344, 313);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 105);
+            this.button3.Size = new System.Drawing.Size(135, 111);
             this.button3.TabIndex = 2;
             this.button3.Text = "End Turn";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
