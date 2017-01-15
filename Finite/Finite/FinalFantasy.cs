@@ -24,19 +24,21 @@ namespace Finite
         public bool AddParty(Party p)
         {
             parties.Add(p);
-            
             return true;
         }
         
         public Character ActiveCharacter
-        {            
-            get
-            {
+        {                      
+            get 
+            {  
                 Party p1 = parties[0];
-                return p1.characters[0];
-            }
+                return p1.characters[0]; 
+            } 
+        } 
+        public bool NextParty()
+        {
+            return false;
         }
-        public bool NextParty() { return false; }
     }
     class Party
     {
@@ -88,7 +90,7 @@ namespace Finite
         public OnEndTurn onEndTurn;
         
         public void EndTurn()
-        {           
+        {
             if (onEndTurn != null)
             {
                 onEndTurn.Invoke();

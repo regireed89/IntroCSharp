@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Windows.Forms;
 
 
@@ -23,11 +22,10 @@ namespace Finite
        
         private void button3_Click(object sender, EventArgs e)
         {
+            
             combatManager.AddParty(firstParty);
             firstParty.AddCharacter(characterOne);
             combatManager.ActiveCharacter.EndTurn();   
         }
-
-
     }
 }
