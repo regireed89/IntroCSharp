@@ -9,7 +9,7 @@ namespace Finite
 {
     class FinalFantasy
     {
-      
+
     }
 
     class Combat
@@ -26,15 +26,15 @@ namespace Finite
             parties.Add(p);
             return true;
         }
-        
+
         public Character ActiveCharacter
-        {                      
-            get 
-            {  
+        {
+            get
+            {
                 Party p1 = parties[0];
-                return p1.characters[0]; 
-            } 
-        } 
+                return p1.characters[0];
+            }            
+        }
         public bool NextParty()
         {
             return false;
@@ -47,10 +47,10 @@ namespace Finite
             characters = new List<Character>();
         }
         public List<Character> characters;
-       
+
         public void EndTurn()
         {
-            
+
         }
         /// <summary>
         /// adds a new character to a list of characters  
@@ -65,36 +65,43 @@ namespace Finite
         }
         public delegate void OnPartyEnd();
         OnPartyEnd onPartyEnd;
-        public int ActiveIndex = 0;
+
+        /// <summary>
+        ///moves to next player in the list 
+        /// </summary>
+        /// <returns></returns>
         public bool NextPlayer()
-        {            
+        {
+            ActiveIndex = 0;
+            
             return false;
         }
+        public int ActiveIndex = 0;
     }
     class Character
     {
         public Character()
         {
-           
+
         }
         public bool Attack()
         {
             return false;
         }
         public bool Defend()
-        {          
+        {
             return false;
-        }        
-        
+        }
+
         public delegate bool OnEndTurn();
         public OnEndTurn onEndTurn;
-        
+
         public void EndTurn()
-        {
-            if (onEndTurn != null)
-            {
-                onEndTurn.Invoke();
-            }
-        }
-    }
-}
+        { 
+            if (onEndTurn != null) 
+            { 
+                onEndTurn.Invoke();  
+            } 
+        } 
+    } 
+} 
