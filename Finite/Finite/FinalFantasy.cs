@@ -111,9 +111,9 @@ namespace Finite
         {
             
             c = characters[ActiveIndex++];
-            if(characters[ActiveIndex] == null)
+            if(c == null)
             {
-                
+                EndTurn();
                 return false;
             }
             else
