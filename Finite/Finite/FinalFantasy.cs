@@ -55,7 +55,7 @@ namespace Finite
         public int i = 0;
         public bool NextParty()
         {
-            if(i >= parties.Count)
+            if(i > parties.Count)
             {
                 i = 0;
                 return false;

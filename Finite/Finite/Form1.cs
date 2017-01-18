@@ -39,7 +39,7 @@ namespace Finite
             secondParty.AddCharacter(Bo);
 
             combatManager.activeParty = firstParty;
-            combatManager.ActiveCharacter = Jim;
+            combatManager.activeCharacter = Jim;
             firstParty.activeIndex = Jim;
            
         }
