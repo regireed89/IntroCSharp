@@ -37,12 +37,18 @@ namespace Finite
             secondParty.AddCharacter(Bob);
             Bo = new Character();
             secondParty.AddCharacter(Bo);
+
+            combatManager.activeParty = firstParty;
+            combatManager.activeCharacter = Jim;
+           
         }
         
         
        
         private void button3_Click(object sender, EventArgs e)
         {
+            combatManager.ActiveParty.NextPlayer();
+            combatManager.NextParty();
             combatManager.ActiveCharacter.EndTurn();
             firstParty.EndTurn();
             secondParty.EndTurn();

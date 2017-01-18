@@ -20,48 +20,53 @@ namespace Finite
         /// </summary> 
         /// <param name="p"></param> 
         /// <returns></returns> 
-        public bool AddParty(Party p)
+        public void AddParty(Party p)
         {
             parties.Add(p);
-            if (parties.Count > 2)
-            {
-                parties.Remove(parties[2]);
-                return true;
-            }
-            p.onPartyEnd += NextParty;
-
-            return true;
+            p.onPartyEnd += NextParty;          
         }
 
-        public Party activeParty = new Party();
+        public Party activeParty;
         public Character activeCharacter;
-        public int i = 0;
+       
         public Party ActiveParty
         {
+            get
+            {
+                return activeParty;
+            }
             set
             {
-               activeParty = parties[i];               
+                activeParty = value;
             }
         }
         public Character ActiveCharacter
         {
             get
             {
-                return activeParty.characters[i];
+                return activeCharacter;
             }
             set
             {
-                activeCharacter = activeParty.characters[i];
+                activeCharacter = value;
             }
         }
-       
 
+        public int i = 0;
         public bool NextParty()
         {
-            activeCharacter = activeParty.characters[i++];
-             if (activeCharacter == null)
+            if(i >= parties.Count)
             {
-                activeParty = parties[i++];
+                
+                return false;
+            }
+            
+                
+            else if (activeCharacter == null)
+            {
+                i = 0;
+                activeParty = parties[i++];                
+                activeCharacter = activeParty.characters[i];
                 return true;
             }
             else
@@ -82,45 +87,50 @@ namespace Finite
         public Party()
         {
             characters = new List<Character>();
-
         }
         public List<Character> characters;
 
-        public int ActiveIndex = 0;
+       
         /// <summary>
         /// adds a new character to a list of characters 
         /// </summary>  
         /// <param name="c"></param>  
         /// <returns></returns> 
-        public bool AddCharacter(Character c)
+        public void AddCharacter(Character c)
         {
             characters.Add(c);
             c.onEndTurn += NextPlayer;
-            return true;
+            
         }
         public delegate bool OnPartyEnd();
         public OnPartyEnd onPartyEnd;
-        
-        
-        Character c;
+        public Character activeIndex;
+        public Character ActiveIndex
+        {
+            get
+            {
+                return activeIndex;
+            }
+            set
+            {
+                activeIndex = value;
+            }
+        }
+
+        public int i = 0;
         /// <summary>  
         ///moves to next player in the list  
         /// </summary>  
         /// <returns></returns> 
         public bool NextPlayer()
         {
-            
-            c = characters[ActiveIndex++];
-            if(c == null)
+            activeIndex = characters[i++]; 
+            if (i >= characters.Count)
             {
-                EndTurn();
-                return false;
+                i = 0;
             }
-            else
-            {
-                return true;
-            }
-            
+            return true;
+
         }
 
         public void EndTurn()
