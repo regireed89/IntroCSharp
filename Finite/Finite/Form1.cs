@@ -43,7 +43,19 @@ namespace Finite
        
         private void button3_Click(object sender, EventArgs e)
         {
-            combatManager.ActiveCharacter.EndTurn();   
+            combatManager.ActiveCharacter.EndTurn();
+            firstParty.EndTurn();
+            secondParty.EndTurn();
+
+            if (combatManager.ActiveCharacter == firstParty.characters[2])
+            {
+                textBox3.Text = "dfghjk";
+            }
+            else if(combatManager.ActiveCharacter == secondParty.characters[1])
+            {
+                textBox5.Text = "tgbhjk";
+            }
+
         }
     }
 }
