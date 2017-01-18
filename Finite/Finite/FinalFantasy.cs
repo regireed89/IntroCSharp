@@ -7,10 +7,8 @@ using System.Windows.Forms;
 
 namespace Finite
 {
-    class FinalFantasy
-    {
+    class FinalFantasy { }
 
-    }
     class Combat
     {
         public Combat() { parties = new List<Party>(); }
@@ -31,32 +29,46 @@ namespace Finite
                 return true;
             }
             p.onPartyEnd += NextParty;
-            
+
             return true;
         }
 
-        Party p1;
-        public int activeIndex = 0;
+        public Party activeParty = new Party();
+        public Character activeCharacter;
+        public int i = 0;
+        public Party ActiveParty
+        {
+            set
+            {
+               activeParty = parties[i];               
+            }
+        }
         public Character ActiveCharacter
         {
             get
             {
-                p1 = parties[activeIndex];
-                return p1.characters[activeIndex];
+                return activeParty.characters[i];
+            }
+            set
+            {
+                activeCharacter = activeParty.characters[i];
             }
         }
+       
 
         public bool NextParty()
         {
-            if (p1.characters[activeIndex] == null)
+            activeCharacter = activeParty.characters[i++];
+             if (activeCharacter == null)
             {
-                p1 = parties[activeIndex++];
+                activeParty = parties[i++];
+                return true;
             }
-            p1.characters[0] = ActiveCharacter;
-            return true;
+            else
+            {
+                return false;
+            }
         }
-
-       
     }
 
 
@@ -70,7 +82,7 @@ namespace Finite
         public Party()
         {
             characters = new List<Character>();
-          
+
         }
         public List<Character> characters;
 
@@ -88,15 +100,27 @@ namespace Finite
         }
         public delegate bool OnPartyEnd();
         public OnPartyEnd onPartyEnd;
-
+        
+        
+        Character c;
         /// <summary>  
         ///moves to next player in the list  
         /// </summary>  
         /// <returns></returns> 
         public bool NextPlayer()
         {
-
-            return false;
+            
+            c = characters[ActiveIndex++];
+            if(characters[ActiveIndex] == null)
+            {
+                
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
         }
 
         public void EndTurn()
@@ -106,7 +130,6 @@ namespace Finite
                 onPartyEnd.Invoke();
             }
         }
-
     }
 
 
