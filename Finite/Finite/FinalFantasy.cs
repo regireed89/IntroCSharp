@@ -57,11 +57,10 @@ namespace Finite
         {
             if(i >= parties.Count)
             {
-                
+                i = 0;
                 return false;
             }
-            
-                
+                          
             else if (activeCharacter == null)
             {
                 i = 0;
@@ -116,7 +115,7 @@ namespace Finite
                 activeIndex = value;
             }
         }
-
+       
         public int i = 0;
         /// <summary>  
         ///moves to next player in the list  
@@ -124,13 +123,14 @@ namespace Finite
         /// <returns></returns> 
         public bool NextPlayer()
         {
-            activeIndex = characters[i++]; 
-            if (i >= characters.Count)
+            if( i >= characters.Count)
             {
                 i = 0;
+                return true;
             }
+            activeIndex = characters[i];
+            i++;
             return true;
-
         }
 
         public void EndTurn()
