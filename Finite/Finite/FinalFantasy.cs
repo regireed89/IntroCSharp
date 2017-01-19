@@ -58,17 +58,17 @@ namespace Finite
             activeParty = parties[i];
             if (i > parties.Count)
             {
-                i = 0;              
+                i = 0;
             }
 
             else if (activeCharacter == null)
             {
                 i = 0;
-                
+
                 activeParty = parties[i++];
                 activeCharacter = activeParty.characters[i];
             }
-           
+
         }
     }
 
@@ -83,6 +83,7 @@ namespace Finite
         public Party()
         {
             characters = new List<Character>();
+
         }
         public List<Character> characters;
 
@@ -96,11 +97,12 @@ namespace Finite
         {
             characters.Add(c);
             c.onEndTurn += NextPlayer;
-
+            activeIndex = characters[0];
         }
         public delegate void OnPartyEnd();
         public OnPartyEnd onPartyEnd;
         public Character activeIndex;
+
         public Character ActiveIndex
         {
             get
@@ -119,16 +121,14 @@ namespace Finite
         /// </summary>  
         /// <returns></returns> 
         public void NextPlayer()
-        {            
-            if (i >= characters.Count)
+        {
+            if (i > characters.Count)
             {
-                i = 0;               
+                i = 0;
             }
-            else
-            {
-                i++;
-                activeIndex = characters[i];
-            }           
+            activeIndex = characters[i];
+            i++;
+
         }
 
         public void EndTurn()
@@ -176,14 +176,3 @@ namespace Finite
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-

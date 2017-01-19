@@ -16,7 +16,7 @@ namespace Finite
         Character Billy;
         Character Bob;
         Character Bo;
-        int i = 0;
+        
 
         public Form1()
         {
