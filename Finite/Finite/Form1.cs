@@ -40,7 +40,7 @@ namespace Finite
             secondParty.AddCharacter(Bo);
 
             combatManager.ActiveParty = firstParty;
-               combatManager.ActiveParty.ActiveIndex = Jim;
+            combatManager.ActiveParty.ActiveIndex = firstParty.characters[0];
              
 
             
@@ -51,8 +51,8 @@ namespace Finite
 
         private void button3_Click(object sender, EventArgs e)
         {
-            combatManager.ActiveCharacter.EndTurn();
-            combatManager.ActiveParty.EndTurn();
+            
+            combatManager.ActiveParty.ActiveIndex.EndTurn();
 
             firstParty.EndTurn();
             secondParty.EndTurn();
