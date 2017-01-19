@@ -23,12 +23,12 @@ namespace Finite
         public void AddParty(Party p)
         {
             parties.Add(p);
-            p.onPartyEnd += NextParty;     
+            p.onPartyEnd += NextParty;
         }
 
         public Party activeParty;
         public Character activeCharacter;
-       
+
         public Party ActiveParty
         {
             get
@@ -53,25 +53,22 @@ namespace Finite
         }
 
         public int i = 0;
-        public bool NextParty()
+        public void NextParty()
         {
-            if(i > parties.Count)
+            activeParty = parties[i];
+            if (i > parties.Count)
             {
-                i = 0;
-                return false;
+                i = 0;              
             }
-                          
+
             else if (activeCharacter == null)
             {
                 i = 0;
-                activeParty = parties[i++];                
+                
+                activeParty = parties[i++];
                 activeCharacter = activeParty.characters[i];
-                return true;
             }
-            else
-            {
-                return false;
-            }
+           
         }
     }
 
@@ -89,7 +86,7 @@ namespace Finite
         }
         public List<Character> characters;
 
-       
+
         /// <summary>
         /// adds a new character to a list of characters 
         /// </summary>  
@@ -99,9 +96,9 @@ namespace Finite
         {
             characters.Add(c);
             c.onEndTurn += NextPlayer;
-            
+
         }
-        public delegate bool OnPartyEnd();
+        public delegate void OnPartyEnd();
         public OnPartyEnd onPartyEnd;
         public Character activeIndex;
         public Character ActiveIndex
@@ -115,22 +112,21 @@ namespace Finite
                 activeIndex = value;
             }
         }
-       
+
         public int i = 0;
         /// <summary>  
         ///moves to next player in the list  
         /// </summary>  
         /// <returns></returns> 
-        public bool NextPlayer()
+        public void NextPlayer()
         {
-            if( i >= characters.Count)
+            if (i >= characters.Count)
             {
-                i = 0;
-                return true;
+                i = 0;               
             }
             activeIndex = characters[i];
             i++;
-            return true;
+            
         }
 
         public void EndTurn()
@@ -166,7 +162,7 @@ namespace Finite
             return false;
         }
 
-        public delegate bool OnEndTurn();
+        public delegate void OnEndTurn();
         public OnEndTurn onEndTurn;
 
         public void EndTurn()

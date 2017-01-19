@@ -17,7 +17,7 @@ namespace Finite
         Character Bob;
         Character Bo;
         int i = 0;
-         
+
         public Form1()
         {
             InitializeComponent();
@@ -38,27 +38,28 @@ namespace Finite
             secondParty.AddCharacter(Bob);
             Bo = new Character();
             secondParty.AddCharacter(Bo);
-           firstParty.ActiveIndex = 
+
             combatManager.ActiveParty = firstParty;
-            combatManager.ActiveCharacter = firstParty.characters[i];
+               combatManager.ActiveParty.ActiveIndex = Jim;
+             
 
-
+            
 
         }
-        
-        
-       
+
+
+
         private void button3_Click(object sender, EventArgs e)
         {
-            
-            combatManager.ActiveParty.EndTurn();
             combatManager.ActiveCharacter.EndTurn();
+            combatManager.ActiveParty.EndTurn();
+
             firstParty.EndTurn();
             secondParty.EndTurn();
 
 
-              
-           if (combatManager.ActiveCharacter == firstParty.characters[0])
+
+            if (combatManager.ActiveCharacter == firstParty.characters[0])
             {
                 textBox1.Text = "d";
             }
@@ -70,7 +71,7 @@ namespace Finite
             {
                 textBox3.Text = "dfghjk";
             }
-            else if(combatManager.ActiveCharacter == secondParty.characters[0])
+            else if (combatManager.ActiveCharacter == secondParty.characters[0])
             {
                 textBox4.Text = "tgbhjk";
             }
