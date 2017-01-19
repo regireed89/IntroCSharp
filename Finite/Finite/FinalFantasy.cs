@@ -23,7 +23,7 @@ namespace Finite
         public void AddParty(Party p)
         {
             parties.Add(p);
-            p.onPartyEnd += NextParty;          
+            p.onPartyEnd += NextParty;     
         }
 
         public Party activeParty;

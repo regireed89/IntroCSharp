@@ -16,6 +16,7 @@ namespace Finite
         Character Billy;
         Character Bob;
         Character Bo;
+        int i = 0;
          
         public Form1()
         {
@@ -37,19 +38,20 @@ namespace Finite
             secondParty.AddCharacter(Bob);
             Bo = new Character();
             secondParty.AddCharacter(Bo);
+           firstParty.ActiveIndex = 
+            combatManager.ActiveParty = firstParty;
+            combatManager.ActiveCharacter = firstParty.characters[i];
 
-            combatManager.activeParty = firstParty;
-            combatManager.activeCharacter = Jim;
-            firstParty.activeIndex = Jim;
-           
+
+
         }
         
         
        
         private void button3_Click(object sender, EventArgs e)
         {
-            combatManager.ActiveParty.NextPlayer();
-            combatManager.NextParty();
+            
+            combatManager.ActiveParty.EndTurn();
             combatManager.ActiveCharacter.EndTurn();
             firstParty.EndTurn();
             secondParty.EndTurn();
