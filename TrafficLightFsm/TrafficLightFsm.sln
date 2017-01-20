@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLightFsm", "TrafficLightFsm\TrafficLightFsm.csproj", "{1D8BEE2F-2274-4B08-9B4E-E45D1F4712A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLightFSM", "TrafficLightFsm\TrafficLightFSM.csproj", "{1D8BEE2F-2274-4B08-9B4E-E45D1F4712A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
