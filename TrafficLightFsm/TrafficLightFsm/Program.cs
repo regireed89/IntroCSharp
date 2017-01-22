@@ -30,11 +30,11 @@ namespace TrafficLightFSM
             public State() { }
          enum states
             {
-                Init,
-                Red,
-                Green,
-                Yellow,
-                Exit
+                Init = 0,
+                Red = 1,
+                Green = 2,
+                Yellow = 3,
+                Exit = 9000
             };
 
         }
