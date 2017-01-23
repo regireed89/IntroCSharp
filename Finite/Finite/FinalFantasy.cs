@@ -122,13 +122,13 @@ namespace Finite
         /// <returns></returns> 
         public void NextPlayer()
         {
-            if (i > characters.Count)
+            
+            activeIndex = characters[i];
+            i++;
+            if (i >= characters.Count )
             {
                 i = 0;
             }
-            activeIndex = characters[i];
-            i++;
-
         }
 
         public void EndTurn()

@@ -51,23 +51,24 @@ namespace Finite
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
             combatManager.ActiveParty.ActiveIndex.EndTurn();
 
-            firstParty.EndTurn();
-            secondParty.EndTurn();
+
+            combatManager.ActiveParty.EndTurn();
+            
 
 
 
-            if (combatManager.ActiveCharacter == firstParty.characters[0])
+            if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[0])
             {
                 textBox1.Text = "d";
             }
-            else if (combatManager.ActiveCharacter == firstParty.characters[1])
+            else if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[1])
             {
                 textBox2.Text = "dfghjk";
             }
-            else if (combatManager.ActiveCharacter == firstParty.characters[2])
+            else if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[2])
             {
                 textBox3.Text = "dfghjk";
             }
