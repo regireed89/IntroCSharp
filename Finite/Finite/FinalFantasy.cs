@@ -55,19 +55,12 @@ namespace Finite
         public int i = 0;
         public void NextParty()
         {
-            foreach (Party p in parties)
+            activeParty = parties[i];
+            i++;
+            if (i >= parties.Count)
             {
-                if (p == activeParty && i + 1 < parties.Count)
-                {
-                    activeParty = parties[i + 1];
-                    break;
-                }
-                else if (activeParty == parties[i] && i + 1 >= parties.Count)
-                {
-                    activeParty = parties[0];
-                }
-                i++;
-            }
+                i = 0;
+            }  
         }
     }
 
@@ -121,9 +114,10 @@ namespace Finite
         /// <returns></returns> 
         public void NextPlayer()
         {
+            
             activeIndex = characters[i];
             i++;
-            if (i >= characters.Count)
+            if (i >= characters.Count )
             {
                 i = 0;
             }
