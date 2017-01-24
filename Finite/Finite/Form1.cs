@@ -54,9 +54,12 @@ namespace Finite
 
             combatManager.ActiveParty.ActiveIndex.EndTurn();
 
-
-            combatManager.ActiveParty.EndTurn();
-            
+            if (combatManager.ActiveParty.ActiveIndex == null)
+            {
+                combatManager.ActiveParty = secondParty;
+                combatManager.ActiveParty.ActiveIndex = secondParty.characters[0];
+                
+            }
 
 
 
