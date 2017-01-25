@@ -40,7 +40,7 @@ namespace Finite
             secondParty.AddCharacter(Bo);
 
             combatManager.ActiveParty = firstParty;
-            combatManager.ActiveParty.ActiveIndex = firstParty.characters[0];
+            combatManager.ActiveParty.ActiveIndex =  firstParty.characters[0];
              
 
             
@@ -53,39 +53,31 @@ namespace Finite
         {
 
             combatManager.ActiveParty.ActiveIndex.EndTurn();
-
-            if (combatManager.ActiveParty.ActiveIndex == null)
-            {
-                combatManager.ActiveParty = secondParty;
-                combatManager.ActiveParty.ActiveIndex = secondParty.characters[0];
-                
-            }
-
-
+           
 
             if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[0])
             {
-                textBox1.Text = "d";
+                textBox1.Text = "player1";
             }
             else if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[1])
             {
-                textBox2.Text = "dfghjk";
+                textBox2.Text = "player2";
             }
             else if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[2])
             {
-                textBox3.Text = "dfghjk";
+                textBox3.Text = "player3";
             }
-            else if (combatManager.ActiveCharacter == secondParty.characters[0])
+            if (combatManager.ActiveCharacter == secondParty.characters[0])
             {
-                textBox4.Text = "tgbhjk";
+                textBox4.Text = "player4";
             }
             else if (combatManager.ActiveCharacter == secondParty.characters[1])
             {
-                textBox5.Text = "dfghjk";
+                textBox5.Text = "player5";
             }
             else if (combatManager.ActiveCharacter == secondParty.characters[2])
             {
-                textBox6.Text = "dfghjk";
+                textBox6.Text = "player6";
             }
 
         }
