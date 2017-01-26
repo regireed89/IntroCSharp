@@ -113,8 +113,7 @@ namespace Finite
         /// </summary>  
         /// <returns></returns> 
         public void NextPlayer()
-        {
-            
+        {          
             activeIndex = characters[i];
             i++;
             if (i >= characters.Count )
