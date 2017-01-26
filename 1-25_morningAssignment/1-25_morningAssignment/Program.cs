@@ -49,34 +49,16 @@ namespace _1_25_morningAssignment
 
         static void Main(string[] args)
         {
-            Gene gene = new Gene("11111111");
-            string back = gene.Tail;
-            string front = gene.Head;
-            for(int i = 0; i < back.Length; i++)
+            Gene bin = new Gene("11111111");
+            string newbin = "";
+            foreach (var c in bin.Tail)
             {
-                foreach (char c in back)
-                {
-                    char newfront = Program.Invert(c);
-                                     
-                }
-            } 
+                newbin += Program.Invert(c);
+            }
+                newbin += bin.Tail;
+            Console.WriteLine(newbin);
+            Console.ReadLine();
+
         }
     }
-    //class Program
-    //{
-    //    //public string Strangs(string a)
-    //    //{
-    //    //    a =  "1 1 1 1  1 1 1 1";
-    //    //    a.Substring
-    //    //    string[] ar = new string[255];
-
-
-    //    //    return a;
-    //    //}
-    //    static void Main(string[] args)
-    //    {
-
-    //    }
-
-    //}
 }
