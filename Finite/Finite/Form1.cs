@@ -41,19 +41,12 @@ namespace Finite
 
             combatManager.ActiveParty = firstParty;
             combatManager.ActiveParty.ActiveIndex =  firstParty.characters[0];
-             
-
-            
-
         }
-
-
 
         private void button3_Click(object sender, EventArgs e)
         {
 
             combatManager.ActiveParty.ActiveIndex.EndTurn();
-           
 
             if (combatManager.ActiveParty.ActiveIndex == firstParty.characters[0])
             {
