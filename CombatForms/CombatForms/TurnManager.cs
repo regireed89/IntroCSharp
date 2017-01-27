@@ -11,131 +11,42 @@ namespace CombatForms
     }
     public enum PlayerStates
     {
-        Init,
-        Idle,
-        Attack,
-        EndTurn,
-        Dead
+        INIT = 0,
+        IDLE = 1,
+        ATTACK = 2,
+        ENDTURN = 3,
+        DEAD = 4,
     }
-    class Combat
+    public class FSM
     {
-        public Combat() { parties = new List<Party>(); }
-        List<Party> parties;
+        public FSM()  { }
+            Dictionary<string, List<State>> states_dictionary = new Dictionary<string, List<State>>();
+                             
+        
+    
 
-
-        /// <summary> 
-        /// adds a new party to a list of parties 
-        /// </summary> 
-        /// <param name="p"></param> 
-        /// <returns></returns> 
-        public void AddParty(Party p)
-        {
-            parties.Add(p);
-            p.onPartyEnd += NextParty;
-        }
-
-        public Party activeParty;
-        public Character activeCharacter;
-
-        public Party ActiveParty
-        {
-            get
-            {
-                return activeParty;
-            }
-            set
-            {
-                activeParty = value;
-            }
-        }
-        public Character ActiveCharacter
-        {
-            get
-            {
-                return activeCharacter;
-            }
-            set
-            {
-                activeCharacter = value;
-            }
-        }
-
-        public int i = 0;
-        public void NextParty()
-        {
-            activeParty = parties[i];
-            i++;
-            if (i >= parties.Count)
-            {
-                i = 0;
-            }
-        }
     }
 
-
-
-
-
-
-
-    class Party
+    public class State
     {
-        public Party()
+        public State() { }
+        public State(string s)
         {
-            characters = new List<Character>();
-
+            s = name;
         }
-        public List<Character> characters;
+        public string name;
+        List<State> states = new List<State>();
+        public void Start() { }
+        public void Update() { }
+        public void Exit() { }
 
-
-        /// <summary>
-        /// adds a new character to a list of characters 
-        /// </summary>  
-        /// <param name="c"></param>  
-        /// <returns></returns> 
-        public void AddCharacter(Character c)
+        public delegate void OnEnter();
+        public delegate void OnExit();
+        public OnEnter onEnter;
+        public OnExit onExit;
+        public void AddStates(State s)
         {
-            characters.Add(c);
-            c.onEndTurn += NextPlayer;
-            activeIndex = characters[0];
-        }
-        public delegate void OnPartyEnd();
-        public OnPartyEnd onPartyEnd;
-        public Character activeIndex;
-
-        public Character ActiveIndex
-        {
-            get
-            {
-                return activeIndex;
-            }
-            set
-            {
-                activeIndex = value;
-            }
-        }
-
-        public int i = 0;
-        /// <summary>  
-        ///moves to next player in the list  
-        /// </summary>  
-        /// <returns></returns> 
-        public void NextPlayer()
-        {
-            activeIndex = characters[i];
-            i++;
-            if (i >= characters.Count)
-            {
-                i = 0;
-            }
-        }
-
-        public void EndTurn()
-        {
-            if (onPartyEnd != null)
-            {
-                onPartyEnd.Invoke();
-            }
+            states.Add(s);
         }
     }
 
@@ -146,34 +57,15 @@ namespace CombatForms
 
 
 
-    class Character
-    {
-        public Character()
-        {
 
-        }
 
-        public bool Attack()
-        {
-            return false;
-        }
 
-        public bool Defend()
-        {
-            return false;
-        }
 
-        public delegate void OnEndTurn();
-        public OnEndTurn onEndTurn;
 
-        public void EndTurn()
-        {
-            if (onEndTurn != null)
-            {
-                onEndTurn.Invoke();
-            }
-        }
-    }
+
+
+
+
 }
 
 
