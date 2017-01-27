@@ -9,6 +9,14 @@ namespace CombatForms
     class TurnManager
     {
     }
+    public enum PlayerStates
+    {
+        Init,
+        Idle,
+        Attack,
+        EndTurn,
+        Dead
+    }
     class Combat
     {
         public Combat() { parties = new List<Party>(); }
