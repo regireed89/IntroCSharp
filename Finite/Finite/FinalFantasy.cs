@@ -15,6 +15,7 @@ namespace Finite
         List<Party> parties;
 
 
+
         /// <summary> 
         /// adds a new party to a list of parties 
         /// </summary> 
@@ -27,7 +28,6 @@ namespace Finite
         }
 
         public Party activeParty;
-        public Character activeCharacter;
 
         public Party ActiveParty
         {
@@ -40,17 +40,6 @@ namespace Finite
                 activeParty = value;
             }
         }
-        public Character ActiveCharacter
-        {
-            get
-            {
-                return activeCharacter;
-            }
-            set
-            {
-                activeCharacter = value;
-            }
-        }
 
         public int i = 0;
         public void NextParty()
@@ -60,7 +49,11 @@ namespace Finite
             if (i >= parties.Count)
             {
                 i = 0;
-            }  
+            }
+            if (i + i == parties.Count)
+            {
+                i = 0;
+            }
         }
     }
 
@@ -113,10 +106,10 @@ namespace Finite
         /// </summary>  
         /// <returns></returns> 
         public void NextPlayer()
-        {          
+        {
             activeIndex = characters[i];
             i++;
-            if (i >= characters.Count )
+            if (i >= characters.Count)
             {
                 i = 0;
             }
