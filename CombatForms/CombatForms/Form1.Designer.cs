@@ -133,6 +133,7 @@
             this.EndTurn.TabIndex = 9;
             this.EndTurn.Text = "EndTurn";
             this.EndTurn.UseVisualStyleBackColor = true;
+            this.EndTurn.Click += new System.EventHandler(this.EndTurn_Click);
             // 
             // Party1
             // 
