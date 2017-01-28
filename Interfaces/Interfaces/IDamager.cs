@@ -8,6 +8,6 @@ namespace Interfaces
 {
     public interface IDamager
     {
-        void HitEm();
+        void HitEm(IDamageable );
     }
 }
