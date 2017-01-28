@@ -34,8 +34,16 @@ namespace Interfaces
             get { return m_damage; }
             set { m_damage = value; }
         }
-        
 
+        public int TakeDamage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void HitEm(IDamageable behit)
+        {
+            throw new NotImplementedException();
+        }
     }
     class Zambie : IDamager, IDamageable
     {
@@ -69,6 +77,16 @@ namespace Interfaces
             static void Main(string[] args)
             {
             }
+        }
+
+        public void HitEm(IDamageable behit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int TakeDamage()
+        {
+            throw new NotImplementedException();
         }
     }
 }
