@@ -7,16 +7,32 @@ using System.Threading.Tasks;
 namespace Interfaces
 {
 
-    class Ninja : IDamager, IDamageable
+    enum State
     {
-        public Ninja(string n, int h, int d)
+        INIT = 0,
+        ATTACK = 1,
+        DEFEND = 2,
+        EXIT = 3,
+    }
+
+
+    class FSM
+    {
+        State currentState;
+        void ChangeState(State current, State next) { }
+        bool ValidTransition() { return true; }
+    }
+    public class Entity : IDamager, IDamageable
+    {
+        public Entity() { }
+        public Entity(string name, float health, float damage)
         {
-            n = m_name;
-            h = m_health;
-            d = m_damage;
+            name = m_name;
+            health = m_health;
+            damage = m_damage;
         }
-        public int m_health;
-        public int m_damage;
+        public float m_health;
+        public float m_damage;
         public string m_name;
 
         public string Name
@@ -24,69 +40,73 @@ namespace Interfaces
             get { return m_name; }
             set { m_name = value; }
         }
-        public int Health
+        public float Health
         {
             get { return m_health; }
             set { m_health = value; }
         }
-        public int Damage
+        public float Damage
         {
             get { return m_damage; }
             set { m_damage = value; }
         }
 
-        public int TakeDamage()
+        public void HitEm(float behit)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void HitEm(IDamageable behit)
+        public float TakeDamage(float damageamount)
         {
-            throw new NotImplementedException();
+            m_health -= damageamount;
+            return m_health;
         }
     }
-    class Zambie : IDamager, IDamageable
+    class Ninja : Entity
     {
-        public Zambie(string n, int h, int d)
+        public Ninja() { }
+       
+        public void ThrowKnife(Zambie target)
         {
-            n = m_name;
-            h = m_health;
-            d = m_damage;
-        }
-        public int m_health;
-        public int m_damage;
-        public string m_name;
-        public string Name
-        {
-            get { return m_name; }
-            set { m_name = value; }
-        }
-        public int Health
-        {
-            get { return m_health; }
-            set { m_health = value; }
-        }
-        public int Damage
-        {
-            get { return m_damage; }
-            set { m_damage = value; }
+
         }
 
-        class Program
+        public void Meditate(Ninja heal)
         {
-            static void Main(string[] args)
-            {
-            }
+
+        }
+        
+
+    }
+
+    class Zambie : Entity
+    {
+        public Zambie() { }
+
+        public void Bite(Ninja target)
+        {
+
         }
 
-        public void HitEm(IDamageable behit)
+        public void EatBrain(Zambie heal)
         {
-            throw new NotImplementedException();
+
         }
 
-        public int TakeDamage()
+
+    }
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
         {
-            throw new NotImplementedException();
+           
+
+
+
+
         }
     }
 }

@@ -8,6 +8,6 @@ namespace Interfaces
 {  
     public interface IDamageable
     {
-        int TakeDamage();
+        float TakeDamage(float dohit);
     }
 }
