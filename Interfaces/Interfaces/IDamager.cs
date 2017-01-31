@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    public interface IDamager
-    {
-        void HitEm(float behit);
-    }
+   
    
 }

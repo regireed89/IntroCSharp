@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Interfaces
 {
@@ -10,19 +11,22 @@ namespace Interfaces
     enum State
     {
         INIT = 0,
-        ATTACK = 1,
-        DEFEND = 2,
+        IDLE = 1,
+        ATTACK= 2,
         EXIT = 3,
     }
 
 
     class FSM
     {
-        State currentState;
-        void ChangeState(State current, State next) { }
+        
+        void ChangeState(State current, State next)
+        {
+
+        }
         bool ValidTransition() { return true; }
     }
-    public class Entity : IDamager, IDamageable
+    public class Entity :  IDamageable
     {
         public Entity() { }
         public Entity(string name, float health, float damage)
@@ -51,46 +55,45 @@ namespace Interfaces
             set { m_damage = value; }
         }
 
-        public void HitEm(float behit)
-        {
-            
-        }
+       
 
         public float TakeDamage(float damageamount)
         {
-            m_health -= damageamount;
-            return m_health;
+            this.Health -= damageamount;
+            return this.Health;
         }
     }
+
+
     class Ninja : Entity
     {
+        State currentstate;
         public Ninja() { }
        
         public void ThrowKnife(Zambie target)
         {
-
+            target.Health -= this.Damage;
         }
 
-        public void Meditate(Ninja heal)
+        public void Meditate(Ninja target)
         {
-
+            target.Health += 10;
         }
-        
-
     }
+
 
     class Zambie : Entity
     {
         public Zambie() { }
-
+        State currentstate;
         public void Bite(Ninja target)
         {
-
+            target.Health -= this.Damage;
         }
 
-        public void EatBrain(Zambie heal)
+        public void EatBrain(Zambie target)
         {
-
+            target.Health += 10;
         }
 
 
@@ -100,6 +103,8 @@ namespace Interfaces
 
     class Program
     {
+
+
         static void Main(string[] args)
         {
            
