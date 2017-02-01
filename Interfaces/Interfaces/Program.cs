@@ -16,20 +16,57 @@ namespace Interfaces
         EXIT = 3,
     }
 
-
-    class FSM
+    
+    public class Entity :  IDamageable
     {
-        
+        public Entity() { }
+        public Entity(string name, float health, float damage)
+        {
+            name = m_name;
+            health = m_health;
+            damage = m_damage;
+        }
+        float m_health;
+        float m_damage;
+        string m_name;
+
+        string Name
+        {
+            get { return m_name; }
+            set { m_name = value; }
+        }
+        float Health
+        {
+            get { return m_health; }
+            set { m_health = value; }
+        }
+        float Damage
+        {
+            get { return m_damage; }
+            set { m_damage = value; }
+        }
+
         void ChangeState(State current, State next)
         {
 
         }
         bool ValidTransition() { return true; }
+
+        public float TakeDamage(float damageamount)
+        {
+            this.Health -= damageamount;
+            return this.Health;
+        }
+
+    
     }
-    public class Entity :  IDamageable
+
+
+    class Ninja : Entity
     {
-        public Entity() { }
-        public Entity(string name, float health, float damage)
+        Ninja currentstate;
+        public Ninja() { }
+        public Ninja(string name, float health, float damage)
         {
             name = m_name;
             health = m_health;
@@ -55,24 +92,9 @@ namespace Interfaces
             set { m_damage = value; }
         }
 
-       
-
-        public float TakeDamage(float damageamount)
-        {
-            this.Health -= damageamount;
-            return this.Health;
-        }
-    }
-
-
-    class Ninja : Entity
-    {
-        State currentstate;
-        public Ninja() { }
-       
         public void ThrowKnife(Zambie target)
-        {
-            target.Health -= this.Damage;
+        { 
+            target.Health -= this.Damage; 
         }
 
         public void Meditate(Ninja target)
@@ -85,6 +107,31 @@ namespace Interfaces
     class Zambie : Entity
     {
         public Zambie() { }
+        public Zambie(string name, float health, float damage)
+        {
+            name = m_name;
+            health = m_health;
+            damage = m_damage;
+        }
+        public float m_health;
+        public float m_damage;
+        public string m_name;
+
+        public string Name
+        {
+            get { return m_name; }
+            set { m_name = value; }
+        }
+        public float Health
+        {
+            get { return m_health; }
+            set { m_health = value; }
+        }
+        public float Damage
+        {
+            get { return m_damage; }
+            set { m_damage = value; }
+        }
         State currentstate;
         public void Bite(Ninja target)
         {
@@ -107,8 +154,8 @@ namespace Interfaces
 
         static void Main(string[] args)
         {
-           
-
+            Ninja shadow = new Ninja("shadow", 100, 10);
+            Zambie grrr = new Zambie("grrr", 100, 10);
 
 
 

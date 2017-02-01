@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-   
+   public interface IDamager
+    {
+        IDamager DoDamage(IDamager i);
+    }
    
 }
