@@ -160,7 +160,7 @@ namespace Interfaces
         {
             Ninja shadow = new Ninja("shadow", 100, 10);
             Zambie grrr = new Zambie("grrr", 100, 10);
-
+            
 
 
         }
