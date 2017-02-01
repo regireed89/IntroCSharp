@@ -8,16 +8,16 @@ using System.Timers;
 namespace Interfaces
 {
 
-    enum State
-    {
-        INIT = 0,
+    public enum State
+    { 
+        INIT = 0, 
         IDLE = 1,
         ATTACK= 2,
         EXIT = 3,
     }
 
     
-    public class Entity :  IDamageable
+    public class Entity :  IDamageable, IDamager
     {
         public Entity() { }
         public Entity(string name, float health, float damage)
@@ -44,13 +44,16 @@ namespace Interfaces
         {
             get { return m_damage; }
             set { m_damage = value; }
-        }
-
-        void ChangeState(State current, State next)
+        } 
+        State currentstate;
+        void ChangeState(State next)
         {
-
+            currentstate = next;
         }
-        bool ValidTransition() { return true; }
+        bool ValidTransition()
+        {
+            return false;
+        }
 
         public float TakeDamage(float damageamount)
         {
@@ -58,13 +61,16 @@ namespace Interfaces
             return this.Health;
         }
 
-    
+        public IDamager DoDamage(IDamager i)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
     class Ninja : Entity
     {
-        Ninja currentstate;
+        
         public Ninja() { }
         public Ninja(string name, float health, float damage)
         {
@@ -157,7 +163,7 @@ namespace Interfaces
             Ninja shadow = new Ninja("shadow", 100, 10);
             Zambie grrr = new Zambie("grrr", 100, 10);
 
-
+            
 
         }
     }
