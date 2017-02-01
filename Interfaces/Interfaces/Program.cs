@@ -9,15 +9,15 @@ namespace Interfaces
 {
 
     public enum State
-    { 
-        INIT = 0, 
+    {
+        INIT = 0,
         IDLE = 1,
-        ATTACK= 2,
+        ATTACK = 2,
         EXIT = 3,
     }
 
-    
-    public class Entity :  IDamageable, IDamager
+
+    public class Entity : IDamageable, IDamager
     {
         public Entity() { }
         public Entity(string name, float health, float damage)
@@ -44,7 +44,7 @@ namespace Interfaces
         {
             get { return m_damage; }
             set { m_damage = value; }
-        } 
+        }
         State currentstate;
         void ChangeState(State next)
         {
@@ -70,7 +70,7 @@ namespace Interfaces
 
     class Ninja : Entity
     {
-        
+
         public Ninja() { }
         public Ninja(string name, float health, float damage)
         {
@@ -99,8 +99,8 @@ namespace Interfaces
         }
 
         public void ThrowKnife(Zambie target)
-        { 
-            target.Health -= this.Damage; 
+        {
+            target.Health -= this.Damage;
         }
 
         public void Meditate(Ninja target)
@@ -148,8 +148,6 @@ namespace Interfaces
         {
             target.Health += 10;
         }
-
-
     }
 
 
@@ -163,7 +161,7 @@ namespace Interfaces
             Ninja shadow = new Ninja("shadow", 100, 10);
             Zambie grrr = new Zambie("grrr", 100, 10);
 
-            
+
 
         }
     }
