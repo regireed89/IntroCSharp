@@ -17,6 +17,7 @@ namespace Interfaces
     }
 
 
+
     public class Entity : IDamageable, IDamager
     {
         public Entity() { }
