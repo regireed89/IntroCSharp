@@ -15,10 +15,10 @@ namespace TrafficLightFSM
         Red = 1,
         Green = 2,
         Yellow = 3,
-        Exit = 9000
+        Exit = 4
     };
 
-    
+
     public class State
     {
         public State() { }
@@ -39,26 +39,43 @@ namespace TrafficLightFSM
     }
 
 
-    public class FSM<T>
+    public class FSM
     {
+        LightState currentstate;
+
         public FSM() { }
-        public void ChangeState(State state) { }
-        public bool AddState(State state) { return false; }
-
-        public bool AddTransition<V>() { return false; }
-
-        public void Start() { }
-        public void Update() { }
-        public void Feed() { }
-    }
-
-
-    
-
-    class Program
-    {
-        static void Main(string[] args)
+        public LightState ChangeState(LightState currentlight, LightState next)
         {
+            currentlight = next;
+            currentstate = currentlight;
+            return currentstate;
+        }
+        public bool AddState(LightState state)
+        {
+            return false;
+        }         
+
+        public bool IsTransitionValid()
+        {
+            return false;
+        }
+        public void Start()
+        {           
+            currentstate = LightState.Init;
+        }
+
+        public void Update()
+        {
+          
+        }
+    }
+    class Program 
+    { 
+        static void Main(string[] args) 
+        {
+            FSM fsm = new FSM();
+            fsm.Start();
+
         }
     }
 }
