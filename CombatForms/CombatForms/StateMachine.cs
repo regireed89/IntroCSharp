@@ -16,28 +16,32 @@ namespace CombatForms
         DEAD = 4,
     }
 
-    public class FSM
+    public class FSM : IStateMachine
     {
-        private PlayerStates currentstate;
         public FSM() { states = new List<State>(); }
         List<State> states;
+       
+
         public void Start()
         {
-            currentstate = PlayerStates.INIT;
+            throw new NotImplementedException();
         }
-        public void Update() { }
-        public void TransitonStates(PlayerStates current, PlayerStates next)
+
+        public void Update()
         {
-            current = currentstate;
-            if (CanChangeStates() == true)
-            {
-                currentstate = next;
-            }
+            throw new NotImplementedException();
         }
-        public bool CanChangeStates()
+
+        public void TransitonStates(State next)
         {
-            return true;
+            throw new NotImplementedException();
         }
+
+        public bool ValidTransition()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddState(State s)
         {
             states.Add(s);
@@ -54,10 +58,5 @@ namespace CombatForms
             name = s;
         }
         public string name;
-      
-
-
-     
-        
     }
 }

@@ -13,17 +13,31 @@ namespace CombatForms
     public partial class Form1 : Form
     {
         FSM fsm;
+        Player reg;
         public Form1()
         {
-            fsm = new FSM();
-            fsm.Start();
             
             
+        }
+
+        private void Attack_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void EndTurn_Click(object sender, EventArgs e)
+        {
 
         }
-       
-        
 
+        private void save_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void load_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-
 }
