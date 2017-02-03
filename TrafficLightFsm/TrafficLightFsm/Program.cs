@@ -21,7 +21,7 @@ namespace TrafficLightFSM
     public class FSM
     {
        // LightState currentstate;
-        int x = 0;
+        int currentlight = 0;
         public FSM() { }
         public void Start()
         {
@@ -29,8 +29,8 @@ namespace TrafficLightFSM
 
             while (true)
             {
-                x = Convert.ToInt32(Console.ReadLine());
-                switch (x)
+                currentlight = Convert.ToInt32(Console.ReadLine());
+                switch (currentlight)
                 {
                     case 1:
                         Console.WriteLine("i am green");
