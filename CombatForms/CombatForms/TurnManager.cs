@@ -17,14 +17,19 @@ namespace CombatForms
         ENDTURN = 3,
         DEAD = 4,
     }
+    
     public class FSM
     {
+        private PlayerStates currentstate;
         public FSM()  { }
             Dictionary<string, List<State>> states_dictionary = new Dictionary<string, List<State>>();
-                             
-        
-    
 
+        public void Start()
+        {
+            currentstate = PlayerStates.INIT;
+        }
+        public void Update() { }
+        public void Exit() { }
     }
 
     public class State
@@ -32,13 +37,11 @@ namespace CombatForms
         public State() { }
         public State(string s)
         {
-            s = name;
+            name = s;
         }
         public string name;
         List<State> states = new List<State>();
-        public void Start() { }
-        public void Update() { }
-        public void Exit() { }
+        
 
         public delegate void OnEnter();
         public delegate void OnExit();
@@ -49,23 +52,6 @@ namespace CombatForms
             states.Add(s);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
