@@ -12,8 +12,13 @@ namespace CombatForms
 {
     public partial class Form1 : Form
     {
+        FSM fsm;
         public Form1()
         {
+            fsm = new FSM();
+            fsm.Start();
+            
+            
 
         }
        
