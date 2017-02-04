@@ -56,7 +56,7 @@ namespace CombatForms
         }
     }
 
-    class Player : IAttacker,IStateMachine
+    class Player : IAttacker, IPlayerState
     {
         public Player() { }
         public Player(int h, int d, int s)
@@ -104,27 +104,22 @@ namespace CombatForms
                  
         }
 
-        public void Start()
+        public void Initialize()
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public void Idle()
         {
             throw new NotImplementedException();
         }
 
-        public void TransitonStates(State next)
+        public int Attack()
         {
             throw new NotImplementedException();
         }
 
-        public bool ValidTransition()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddState(State s)
+        public void Dead()
         {
             throw new NotImplementedException();
         }
