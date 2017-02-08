@@ -1,4 +1,4 @@
-﻿using System; 
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace CombatForms
 {
+
+    public enum PlayerStates
+    {
+        INIT = 0,
+        IDLE = 1,
+        ATTACK = 2,
+        ENDTURN = 3,
+        DEAD = 4,
+    }
+
+
+
     class TurnManager
     {
         public TurnManager() { parties = new List<Party>(); }
@@ -22,6 +34,8 @@ namespace CombatForms
             set { activeparty = value; }
         }
     }
+
+
 
     class Party
     {
@@ -56,6 +70,8 @@ namespace CombatForms
         }
     }
 
+
+
     class Player : IAttacker, IPlayerState
     {
         public Player() { }
@@ -65,9 +81,10 @@ namespace CombatForms
             d = m_damage;
             s = m_attackspeed;
             FSM fsm = new FSM();
-            State currentstate = new State();
+
         }
 
+        PlayerStates currentstate = PlayerStates.INIT;
         int m_health;
         int m_damage;
         int m_attackspeed;
@@ -97,11 +114,11 @@ namespace CombatForms
                 onEndTurn.Invoke();
             }
         }
-
+        
         public void DoDamage(Player p)
         {
-            p.Health -= this.Damage;       
-                 
+            p.Health -= this.Damage;
+
         }
 
         public void Initialize()
@@ -114,15 +131,44 @@ namespace CombatForms
             throw new NotImplementedException();
         }
 
-        public int Attack()
+        public bool Attack()
         {
-            throw new NotImplementedException();
+
+            return true;
         }
 
         public void Dead()
         {
             throw new NotImplementedException();
         }
+
+        public void Update()
+        {
+            while (true)
+            {
+                switch (currentstate)
+                {
+                    case PlayerStates.INIT:
+                        Initialize();
+                        break;
+                    case PlayerStates.IDLE:
+                        Idle();
+                        break;
+                    case PlayerStates.ATTACK:
+                        Attack();
+                        break;
+                    case PlayerStates.DEAD:
+                        Dead();
+                        break;
+                    case PlayerStates.ENDTURN:
+                        Idle();
+                        break;
+
+                }
+            }
+        }
+
+
     }
 }
 

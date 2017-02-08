@@ -10,8 +10,9 @@ namespace CombatForms
     {
         void Initialize();
         void Idle();
-        int Attack();
+        bool Attack();
         void EndTurn();
         void Dead();
+        void Update();
     }
 }
