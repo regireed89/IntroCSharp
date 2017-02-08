@@ -13,7 +13,7 @@ namespace CombatForms
     public partial class Form1 : Form
     {
         FSM fsm;
-        Player reg;
+       
         public Form1()
         {
             
