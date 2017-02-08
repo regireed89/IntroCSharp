@@ -27,11 +27,11 @@ namespace CombatForms
         {
             parties.Add(p);
         }
-        public Party activeparty;
+        public Party activeParty;
         public Party Active
         {
-            get { return activeparty; }
-            set { activeparty = value; }
+            get { return activeParty; }
+            set { activeParty = value; }
         }
     }
 
@@ -51,11 +51,11 @@ namespace CombatForms
         public delegate void OnPartyEnd();
         public OnPartyEnd onPartyEnd;
         Player lastattacker;
-        Player activeplayer;
+        Player activePlayer;
         public Player ActivePlayer
         {
-            get { return activeplayer; }
-            set { activeplayer = value; }
+            get { return activePlayer; }
+            set { activePlayer = value; }
         }
         public void NextPlayer()
         {
@@ -84,7 +84,7 @@ namespace CombatForms
 
         }
 
-        PlayerStates currentstate = PlayerStates.INIT;
+        readonly PlayerStates currentstate = PlayerStates.INIT;
         int m_health;
         int m_damage;
         int m_attackspeed;
@@ -114,7 +114,7 @@ namespace CombatForms
                 onEndTurn.Invoke();
             }
         }
-        
+
         public void DoDamage(Player p)
         {
             p.Health -= this.Damage;
@@ -133,20 +133,20 @@ namespace CombatForms
 
         public bool Attack()
         {
-
+            DoDamage(this);
             return true;
         }
 
         public void Dead()
         {
-            throw new NotImplementedException();
+            EndTurn();
         }
 
         public void Update()
         {
             while (true)
             {
-                switch (currentstate)
+                switch (this.currentstate)
                 {
                     case PlayerStates.INIT:
                         Initialize();

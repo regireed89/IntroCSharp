@@ -12,7 +12,5 @@ namespace CombatForms
         void Update();
         void TransitonStates(State next);
         bool ValidTransition();
-        void AddState(State s);
-
     }
 }

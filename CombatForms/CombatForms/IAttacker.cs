@@ -8,8 +8,6 @@ namespace CombatForms
 {
     interface IAttacker
     {
-
         void DoDamage(Player p);
-
     }
 }
