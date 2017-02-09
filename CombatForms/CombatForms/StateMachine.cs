@@ -33,12 +33,12 @@ namespace CombatForms
 
         public void Start()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 

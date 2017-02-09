@@ -120,7 +120,7 @@
             // 
             // Attack
             // 
-            this.Attack.Location = new System.Drawing.Point(112, 424);
+            this.Attack.Location = new System.Drawing.Point(130, 424);
             this.Attack.Name = "Attack";
             this.Attack.Size = new System.Drawing.Size(140, 55);
             this.Attack.TabIndex = 8;

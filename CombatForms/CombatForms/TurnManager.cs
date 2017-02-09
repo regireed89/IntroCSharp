@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +20,20 @@ namespace CombatForms
 
     class TurnManager
     {
-        public TurnManager() { parties = new List<Party>(); }
+        public TurnManager()
+        {
+            parties = new List<Party>();
+            dictionaryparties = new Dictionary<string, List<Party>>();
+        }
         List<Party> parties;
+        Dictionary<string, List<Party>> dictionaryparties;
 
         public void AddParty(Party p)
         {
             parties.Add(p);
         }
         public Party activeParty;
-        public Party Active
+        public Party ActiveParty
         {
             get { return activeParty; }
             set { activeParty = value; }
@@ -39,7 +44,7 @@ namespace CombatForms
 
     class Party
     {
-
+        
         public Party() { players = new List<Player>(); }
         List<Player> players;
 
@@ -50,8 +55,14 @@ namespace CombatForms
 
         public delegate void OnPartyEnd();
         public OnPartyEnd onPartyEnd;
-        Player lastattacker;
-        Player activePlayer;
+
+        Player lastAttacker;
+        public Player LastAttacker
+        {
+            get { return lastAttacker; }
+            set { lastAttacker = value; }
+        }
+        Player activePlayer; 
         public Player ActivePlayer
         {
             get { return activePlayer; }
@@ -59,7 +70,7 @@ namespace CombatForms
         }
         public void NextPlayer()
         {
-
+         
         }
         public void EndTurn()
         {
