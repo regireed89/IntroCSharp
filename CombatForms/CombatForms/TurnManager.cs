@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace CombatForms
 {
@@ -22,22 +23,34 @@ namespace CombatForms
     {
         public TurnManager()
         {
-            parties = new List<Party>();
-            dictionaryparties = new Dictionary<string, List<Party>>();
+            party1 = new List<Party>();
+            party1.Capacity = 3;
+            party2 = new List<Party>();
+            party2.Capacity = 3;
+            allplayers = new List<Player>();
+            allplayers.Capacity = 6;
+        } 
+        List<Party> party1;
+        List<Party> party2;
+        List<Player> allplayers;
+         
+        public void AddParty(Party p) 
+        { 
+            party1.Add(p);
+            
+        } 
+        public Party activeParty; 
+        public Party ActiveParty 
+        { 
+            get { return activeParty; } 
+            set { activeParty = value; } 
         }
-        List<Party> parties;
-        Dictionary<string, List<Party>> dictionaryparties;
-
-        public void AddParty(Party p)
+        public void NextPlayer()
         {
-            parties.Add(p);
+            allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
+            allplayers.Sort((a, b) => a.AttackSpeed.CompareTo(b.AttackSpeed));
         }
-        public Party activeParty;
-        public Party ActiveParty
-        {
-            get { return activeParty; }
-            set { activeParty = value; }
-        }
+   
     }
 
 
@@ -45,12 +58,16 @@ namespace CombatForms
     class Party
     {
         
-        public Party() { players = new List<Player>(); }
+        public Party()
+        {
+            players = new List<Player>();
+        }
         List<Player> players;
-
+      
         public void AddCharacter(Player p)
         {
             players.Add(p);
+           
         }
 
         public delegate void OnPartyEnd();
@@ -68,10 +85,7 @@ namespace CombatForms
             get { return activePlayer; }
             set { activePlayer = value; }
         }
-        public void NextPlayer()
-        {
-         
-        }
+       
         public void EndTurn()
         {
             if (onPartyEnd != null)
@@ -92,10 +106,10 @@ namespace CombatForms
             d = m_damage;
             s = m_attackspeed;
             FSM fsm = new FSM();
-
+            PlayerStates currentstate = PlayerStates.INIT;
         }
 
-        readonly PlayerStates currentstate = PlayerStates.INIT;
+       
         int m_health;
         int m_damage;
         int m_attackspeed;
@@ -105,11 +119,13 @@ namespace CombatForms
             get { return m_health; }
             set { m_health = value; }
         }
+
         public int Damage
         {
             get { return m_damage; }
             set { m_damage = value; }
         }
+
         public int AttackSpeed
         {
             get { return m_attackspeed; }
@@ -134,7 +150,7 @@ namespace CombatForms
 
         public void Initialize()
         {
-            throw new NotImplementedException();
+            this.currentstate = PlayerStates.IDLE;
         }
 
         public void Idle()

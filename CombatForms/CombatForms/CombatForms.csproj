@@ -57,6 +57,7 @@
     <Compile Include="IStateMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="StateMachine.cs" />
     <Compile Include="TurnManager.cs" />
     <EmbeddedResource Include="Form1.resx">
