@@ -50,7 +50,6 @@ namespace CombatForms
             allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
             allplayers.Sort((a, b) => a.AttackSpeed.CompareTo(b.AttackSpeed));
         }
-   
     }
 
 
@@ -73,7 +72,7 @@ namespace CombatForms
         public delegate void OnPartyEnd();
         public OnPartyEnd onPartyEnd;
 
-        Player lastAttacker;
+        public Player lastAttacker;
         public Player LastAttacker
         {
             get { return lastAttacker; }
@@ -106,10 +105,10 @@ namespace CombatForms
             d = m_damage;
             s = m_attackspeed;
             FSM fsm = new FSM();
-            PlayerStates currentstate = PlayerStates.INIT;
+            
         }
 
-       
+        readonly PlayerStates currentstate = PlayerStates.INIT;
         int m_health;
         int m_damage;
         int m_attackspeed;

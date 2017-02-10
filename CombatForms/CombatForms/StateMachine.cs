@@ -13,9 +13,9 @@ namespace CombatForms
     {
         public FSM()
         {
-            states = new Dictionary<string, State>();
+            states = new List<State>();
         }
-        Dictionary<string, State> states;
+        List<State> states;
         State currentstate;
 
         public void TransitonStates(State next)

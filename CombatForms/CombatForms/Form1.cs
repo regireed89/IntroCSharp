@@ -12,12 +12,12 @@ namespace CombatForms
 {
     public partial class Form1 : Form
     {
-        FSM fsm;
+        
+        
        
         public Form1()
         {
-            
-            
+                
         }
 
         private void Attack_Click(object sender, EventArgs e)
@@ -32,6 +32,7 @@ namespace CombatForms
 
         private void save_Click(object sender, EventArgs e)
         {
+            
 
         }
 
