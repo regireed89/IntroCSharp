@@ -24,11 +24,8 @@ namespace CombatForms
         public TurnManager()
         {
             party1 = new List<Party>();
-            party1.Capacity = 3;
             party2 = new List<Party>();
-            party2.Capacity = 3;
             allplayers = new List<Player>();
-            allplayers.Capacity = 6;
         } 
         List<Party> party1;
         List<Party> party2;
@@ -47,8 +44,8 @@ namespace CombatForms
         }
         public void NextPlayer()
         {
-            allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
-            allplayers.Sort((a, b) => a.AttackSpeed.CompareTo(b.AttackSpeed));
+            
+             
         }
     }
 
@@ -63,7 +60,7 @@ namespace CombatForms
         }
         List<Player> players;
       
-        public void AddCharacter(Player p)
+        public void AddPlayer(Player p)
         {
             players.Add(p);
            
@@ -78,7 +75,7 @@ namespace CombatForms
             get { return lastAttacker; }
             set { lastAttacker = value; }
         }
-        Player activePlayer; 
+        public Player activePlayer; 
         public Player ActivePlayer
         {
             get { return activePlayer; }
@@ -105,10 +102,10 @@ namespace CombatForms
             d = m_damage;
             s = m_attackspeed;
             FSM fsm = new FSM();
-            
+            currentstate = PlayerStates.INIT;
         }
 
-        readonly PlayerStates currentstate = PlayerStates.INIT;
+        PlayerStates currentstate;
         int m_health;
         int m_damage;
         int m_attackspeed;
@@ -118,13 +115,11 @@ namespace CombatForms
             get { return m_health; }
             set { m_health = value; }
         }
-
         public int Damage
         {
             get { return m_damage; }
             set { m_damage = value; }
         }
-
         public int AttackSpeed
         {
             get { return m_attackspeed; }
@@ -146,28 +141,26 @@ namespace CombatForms
             p.Health -= this.Damage;
 
         }
-
         public void Initialize()
         {
             this.currentstate = PlayerStates.IDLE;
         }
-
         public void Idle()
         {
-            throw new NotImplementedException();
+            if(this.Health <= 0)
+            {
+                this.currentstate = PlayerStates.DEAD;
+            }
         }
-
         public bool Attack()
         {
             DoDamage(this);
             return true;
         }
-
         public void Dead()
         {
             EndTurn();
         }
-
         public void Update()
         {
             while (true)
