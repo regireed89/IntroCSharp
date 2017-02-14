@@ -10,7 +10,7 @@ namespace CombatForms
     {
         void Start();
         void Update();
-        void TransitonStates(State next);
+        void TransitonStates(Enum next);
         bool ValidTransition();
     }
 }

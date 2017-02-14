@@ -11,3 +11,4 @@ namespace CombatForms
         void DoDamage(Player p);
     }
 }
+ 

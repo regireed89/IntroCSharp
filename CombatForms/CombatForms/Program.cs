@@ -11,13 +11,30 @@ namespace CombatForms
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]       
+        [STAThread]
         static void Main()
         {
+            TurnManager turn = new TurnManager();
+            Party party1 = new Party();
+            Party party2 = new Party();
+            Player jim = new Player(100, 10, 6014);
+            Player john = new Player(100, 10, 41);
+            Player joe = new Player(100, 10, 65914);
+            party1.AddPlayer(jim);
+            party1.AddPlayer(john);
+            party1.AddPlayer(joe);
+            Player billy = new Player(100, 10, 9);
+            Player bob = new Player(100, 10, 49658);
+            Player bo = new Player(100, 10, 89);
+            party2.AddPlayer(billy);
+            party2.AddPlayer(bob);
+            party2.AddPlayer(bo);
+
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            
+
         }
     }
 }

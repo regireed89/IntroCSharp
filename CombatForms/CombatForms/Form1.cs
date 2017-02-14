@@ -24,7 +24,7 @@ namespace CombatForms
 
         private void Attack_Click(object sender, EventArgs e)
         {
-           
+          
         }
 
         private void EndTurn_Click(object sender, EventArgs e)

@@ -16,16 +16,18 @@ namespace CombatForms
         DEAD = 4,
     }
 
-    public class FSM<T> : IStateMachine
+
+
+    public class FSM : IStateMachine
     {
         public FSM()
         {
             states = new List<State>();
         }
         List<State> states;
-        State currentstate;
+        Enum currentstate;
 
-        public void TransitonStates(State next)
+        public void TransitonStates(Enum next)
         {
             if (ValidTransition())
             {
@@ -38,9 +40,9 @@ namespace CombatForms
             return true;
         }
 
-        public void AddState()
+        public void AddState(Enum e)
         {
-
+            states.Add(e);
         }
         public void Start()
         {
@@ -53,12 +55,14 @@ namespace CombatForms
         }
     }
 
+
+
     public class State
     {
         public State() { }
-        public State(string s)
+        public State(Enum e)
         {
-            name = s;
+            name = e.ToString();
         }
         public string name;
     }
