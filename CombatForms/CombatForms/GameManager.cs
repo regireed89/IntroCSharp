@@ -8,11 +8,18 @@ namespace CombatForms
 {
     class GameManager
     {
-        Party party1 = new Party();
-        Party party2 = new Party();
-        Player jim = new Player(100, 10, 6014);
-        Player john = new Player(100, 10, 41);
-        Player joe = new Player(100, 10, 65914);
+
+        public Party firstparty;
+        public Party secondparty;
+        public Player player1;
+        public Player player2;
+        public Player player3;
+        public Player player4;
+        public Player player5;
+        public Player player6;
+        public Player activeplayer;
+        public List<Player> playerlist;
+
         //new up when we access the property Instance
         private static GameManager instance;
         //private because someone to new up this instance

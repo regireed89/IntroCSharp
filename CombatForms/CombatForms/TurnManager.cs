@@ -24,6 +24,7 @@ namespace CombatForms
             party1 = new List<Party>();
             party2 = new List<Party>();
             allplayers = new List<Player>();
+
         }
         List<Party> party1;
         List<Party> party2;
@@ -40,10 +41,15 @@ namespace CombatForms
             get { return activeParty; }
             set { activeParty = value; }
         }
+        int i = 0;
         public void NextPlayer()
         {
-
-
+            GameManager.Instance.activeplayer = GameManager.Instance.playerlist[i];
+            i++;
+            if (GameManager.Instance.playerlist[i] == null)
+            {
+                i = 0;
+            }
         }
     }
 
@@ -61,7 +67,7 @@ namespace CombatForms
         public void AddPlayer(Player p)
         {
             players.Add(p);
-            
+
         }
 
         public delegate void OnPartyEnd();
@@ -98,7 +104,7 @@ namespace CombatForms
         {
             m_health = health;
             m_damage = damage;
-            m_attackspeed = speed; 
+            m_attackspeed = speed;
             FSM<PlayerStates> fsm = new FSM<PlayerStates>();
             currentstate = PlayerStates.INIT;
 
