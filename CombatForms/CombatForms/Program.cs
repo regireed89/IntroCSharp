@@ -40,6 +40,8 @@ namespace CombatForms
             allplayers.Add(bob);
             allplayers.Add(bo);
 
+            
+
             allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
             allplayers.Sort((a, b) => a.AttackSpeed.CompareTo(b.AttackSpeed));
             allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));

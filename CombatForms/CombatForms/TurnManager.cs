@@ -1,4 +1,4 @@
-﻿using System; 
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +8,14 @@ using System.Diagnostics;
 namespace CombatForms
 {
 
-   
-
-
+    public enum PlayerStates
+    {
+        INIT = 0,
+        IDLE = 1,
+        ATTACK = 2,
+        ENDTURN = 3,
+        DEAD = 4,
+    }
 
     public class TurnManager
     {
@@ -19,26 +24,26 @@ namespace CombatForms
             party1 = new List<Party>();
             party2 = new List<Party>();
             allplayers = new List<Player>();
-        } 
+        }
         List<Party> party1;
         List<Party> party2;
         List<Player> allplayers;
-         
-        public void AddParty(Party p) 
-        { 
+
+        public void AddParty(Party p)
+        {
             party1.Add(p);
-            
-        } 
-        public Party activeParty; 
-        public Party ActiveParty 
-        { 
-            get { return activeParty; } 
-            set { activeParty = value; } 
+
+        }
+        public Party activeParty;
+        public Party ActiveParty
+        {
+            get { return activeParty; }
+            set { activeParty = value; }
         }
         public void NextPlayer()
         {
-            
-             
+
+
         }
     }
 
@@ -46,17 +51,17 @@ namespace CombatForms
 
     public class Party
     {
-        
+
         public Party()
         {
             players = new List<Player>();
         }
         List<Player> players;
-      
+
         public void AddPlayer(Player p)
         {
             players.Add(p);
-           
+            
         }
 
         public delegate void OnPartyEnd();
@@ -68,13 +73,13 @@ namespace CombatForms
             get { return lastAttacker; }
             set { lastAttacker = value; }
         }
-        public Player activePlayer; 
+        public Player activePlayer;
         public Player ActivePlayer
         {
             get { return activePlayer; }
             set { activePlayer = value; }
         }
-       
+
         public void EndTurn()
         {
             if (onPartyEnd != null)
@@ -89,19 +94,20 @@ namespace CombatForms
     public class Player : IAttacker, IPlayerState
     {
         public Player() { }
-        public Player(int h, int d, int s)
+        public Player(int health, int damage, int speed)
         {
-            h = m_health;
-            d = m_damage;
-            s = m_attackspeed;
+            m_health = health;
+            m_damage = damage;
+            m_attackspeed = speed; 
             FSM<PlayerStates> fsm = new FSM<PlayerStates>();
             currentstate = PlayerStates.INIT;
+
         }
 
         PlayerStates currentstate;
-        int m_health;
-        int m_damage;
-        int m_attackspeed;
+        private int m_health;
+        private int m_damage;
+        private int m_attackspeed;
 
         public int Health
         {
@@ -140,7 +146,7 @@ namespace CombatForms
         }
         public void Idle()
         {
-            if(this.Health <= 0)
+            if (this.Health <= 0)
             {
                 this.currentstate = PlayerStates.DEAD;
             }
