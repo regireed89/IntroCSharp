@@ -42,7 +42,7 @@ namespace CombatForms
 
         Enum currentstate;
 
-        public void AddTransiton(Enum current, Enum next)
+        public void AddTransiton(State current, State next)
         {
             
         }

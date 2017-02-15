@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace CombatForms
 {
@@ -12,6 +13,7 @@ namespace CombatForms
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        
         static void Main()
         {
             TurnManager turn = new TurnManager();
@@ -29,8 +31,19 @@ namespace CombatForms
             party2.AddPlayer(billy);
             party2.AddPlayer(bob);
             party2.AddPlayer(bo);
-            
-            
+
+            List<Player> allplayers = new List<Player>();
+            allplayers.Add(jim);
+            allplayers.Add(john);
+            allplayers.Add(joe);
+            allplayers.Add(billy);
+            allplayers.Add(bob);
+            allplayers.Add(bo);
+
+            allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
+            allplayers.Sort((a, b) => a.AttackSpeed.CompareTo(b.AttackSpeed));
+            allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

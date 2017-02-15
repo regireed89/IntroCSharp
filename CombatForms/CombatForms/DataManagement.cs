@@ -8,12 +8,12 @@ using System.IO;
 
 namespace CombatForms
 {
-    static class DataManagement<T>
+    public static class DataManagement<T>
     {
         public static void Serialize(string filename, T data)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            TextWriter writter = new StreamWriter(@"..\..\SavedFiles\" + filename + ".xml");
+            TextWriter writter = new StreamWriter(@"..\..\" + filename + ".xml");
             serializer.Serialize(writter, data);
             writter.Close();
         } 
@@ -22,7 +22,7 @@ namespace CombatForms
         {
             T data;
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            TextReader reader = new StreamReader(@"..\..\SavedFiles\" + filename + ".xml");
+            TextReader reader = new StreamReader(@"..\..\" + filename + ".xml");
             data = (T)serializer.Deserialize(reader);
             reader.Close();
             return data; 

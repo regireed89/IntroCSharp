@@ -12,7 +12,7 @@ namespace CombatForms
 
 
 
-    class TurnManager
+    public class TurnManager
     {
         public TurnManager()
         {
@@ -44,7 +44,7 @@ namespace CombatForms
 
 
 
-    class Party
+    public class Party
     {
         
         public Party()
@@ -86,7 +86,7 @@ namespace CombatForms
 
 
 
-    class Player : IAttacker, IPlayerState
+    public class Player : IAttacker, IPlayerState
     {
         public Player() { }
         public Player(int h, int d, int s)

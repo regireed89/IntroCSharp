@@ -55,7 +55,6 @@
     </Compile>
     <Compile Include="IAttacker.cs" />
     <Compile Include="IPlayerState.cs" />
-    <Compile Include="IStateMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton.cs" />

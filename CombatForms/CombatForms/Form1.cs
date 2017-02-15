@@ -12,8 +12,8 @@ namespace CombatForms
 {
     public partial class Form1 : Form
     {
-        
-        
+
+        List<Player> all = new List<Player>();
        
         public Form1()
         {
@@ -34,7 +34,7 @@ namespace CombatForms
 
         private void save_Click(object sender, EventArgs e)
         {
-
+            foreach(Player p in )
             DataManagement<Player>.Serialize("MyGame", )
             
         }
