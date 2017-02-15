@@ -34,8 +34,9 @@ namespace CombatForms
 
         private void save_Click(object sender, EventArgs e)
         {
-            
 
+            DataManagement<Player>.Serialize("MyGame", )
+            
         }
 
         private void load_Click(object sender, EventArgs e)

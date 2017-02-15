@@ -29,7 +29,7 @@ namespace CombatForms
             party2.AddPlayer(billy);
             party2.AddPlayer(bob);
             party2.AddPlayer(bo);
-
+            
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

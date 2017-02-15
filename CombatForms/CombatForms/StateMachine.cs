@@ -18,21 +18,33 @@ namespace CombatForms
 
 
 
-    public class FSM : IStateMachine
+    public class FSM<T>
     {
         public FSM()
         {
-            states = new List<State>();
+           
+            states = new Dictionary<string, State>();
+
+            transitions = new Dictionary<string, List<State>>();
+
+            var e = Enum.GetValues(typeof(T));
+
+            foreach (var v in e)
+
+            {
+                State s = new State(v as Enum);
+                states.Add(s.name, s);
+            }
         }
-        List<State> states;
+        Dictionary<string, State> states;
+        Dictionary<string, List<State>> transitions;
+
+
         Enum currentstate;
 
-        public void TransitonStates(Enum next)
+        public void AddTransiton(Enum current, Enum next)
         {
-            if (ValidTransition())
-            {
-                currentstate = next;
-            }
+            
         }
 
         public bool ValidTransition()
@@ -42,7 +54,8 @@ namespace CombatForms
 
         public void AddState(Enum e)
         {
-            states.Add(e);
+            State s = new State(e);
+            states.Add(s.name, s);
         }
         public void Start()
         {

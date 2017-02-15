@@ -94,7 +94,7 @@ namespace CombatForms
             h = m_health;
             d = m_damage;
             s = m_attackspeed;
-            FSM fsm = new FSM();
+            FSM<PlayerStates> fsm = new FSM<PlayerStates>();
             currentstate = PlayerStates.INIT;
         }
 
