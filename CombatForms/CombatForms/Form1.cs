@@ -15,13 +15,11 @@ namespace CombatForms
        
         public Form1()
         {
-             
-            
-                
+            InitializeComponent();               
         }
 
         private void Attack_Click(object sender, EventArgs e)
-        {
+        {           
             GameManager.Instance.activeplayer.Update();
         }
 

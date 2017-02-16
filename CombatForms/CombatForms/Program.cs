@@ -17,7 +17,9 @@ namespace CombatForms
         static void Main()
         {
             TurnManager turn = new TurnManager();
-            
+            turn.AddParty(GameManager.Instance.firstparty);
+            turn.AddParty(GameManager.Instance.secondparty);
+
             Party party1 = new Party();
             Player jim = new Player(100, 10, 60);
             Player john = new Player(100, 10, 41);
@@ -59,7 +61,7 @@ namespace CombatForms
 
 
             GameManager.Instance.playerlist = allplayers;
-            Debug.WriteLine(GameManager.Instance.activeplayer.AttackSpeed);
+         
           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
