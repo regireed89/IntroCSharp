@@ -16,7 +16,7 @@ namespace CombatForms
             TextWriter writter = new StreamWriter(@"..\..\" + filename + ".xml");
             serializer.Serialize(writter, data);
             writter.Close();
-        } 
+        }
 
         public static T Deserialize(string filename)
         {
@@ -25,7 +25,7 @@ namespace CombatForms
             TextReader reader = new StreamReader(@"..\..\" + filename + ".xml");
             data = (T)serializer.Deserialize(reader);
             reader.Close();
-            return data; 
+            return data;
         }
     }
 }

@@ -18,7 +18,11 @@ namespace CombatForms
         public Player player5;
         public Player player6;
         public Player activeplayer;
+        public FSM<PlayerStates> fsm;
         public List<Player> playerlist;
+        //public Player lastattackerp1;
+        //public Player lastattackerp2;
+
 
         //new up when we access the property Instance
         private static GameManager instance;

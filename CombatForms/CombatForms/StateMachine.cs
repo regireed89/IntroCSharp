@@ -10,9 +10,8 @@ namespace CombatForms
     public class FSM<T>
     {
         public FSM()
-        {          
+        {
             states = new Dictionary<string, State>();
-            transitions = new Dictionary<string, List<State>>();
             var e = Enum.GetValues(typeof(T));
             foreach (var v in e)
             {
@@ -21,34 +20,39 @@ namespace CombatForms
             }
         }
         Dictionary<string, State> states;
-        Dictionary<string, List<State>> transitions;
+        private Dictionary<string, List<State>> transitions = new Dictionary<string, List<State>>();
 
 
-       
-
-        public void AddTransiton(State current, State next)
+        public void AddTransiton<V>(V current, V next)
         {
-            
+
+            //State s = current as State;
+            // var tmp = transitions[s.name];
         }
 
         public bool ValidTransition()
         {
             return true;
         }
-
-        public void AddState(Enum e)
+        public void ChangeState(PlayerStates s)
         {
-            State s = new State(e);
-            states.Add(s.name, s);
+            if (ValidTransition())
+            {
+                GameManager.Instance.activeplayer.currentstate = s;
+            }
         }
+
         public void Start()
         {
-            
+            //GameManager.Instance.lastattackerp1 = GameManager.Instance.firstparty[0];
+            //GameManager.Instance.lastattackerp2 = GameManager.Instance.secondparty[0];
+            GameManager.Instance.activeplayer = GameManager.Instance.playerlist[0];
+            GameManager.Instance.activeplayer.currentstate = PlayerStates.INIT;
         }
 
         public void Update()
         {
-            
+
         }
     }
 

@@ -48,6 +48,8 @@
             this.Player6 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.PlayerTurn = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // save
@@ -212,26 +214,47 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(259, 96);
+            this.richTextBox1.Location = new System.Drawing.Point(160, 94);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(80, 26);
             this.richTextBox1.TabIndex = 18;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // PlayerTurn
             // 
             this.PlayerTurn.AutoSize = true;
-            this.PlayerTurn.Location = new System.Drawing.Point(273, 80);
+            this.PlayerTurn.Location = new System.Drawing.Point(157, 78);
             this.PlayerTurn.Name = "PlayerTurn";
             this.PlayerTurn.Size = new System.Drawing.Size(61, 13);
             this.PlayerTurn.TabIndex = 19;
             this.PlayerTurn.Text = "Player Turn";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(304, 93);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(79, 27);
+            this.richTextBox2.TabIndex = 20;
+            this.richTextBox2.Text = "";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(304, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "active player state";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 548);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.PlayerTurn);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Player6);
@@ -281,6 +304,8 @@
         private System.Windows.Forms.Label Player6;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label PlayerTurn;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
