@@ -46,13 +46,11 @@ namespace CombatForms
                 GameManager.Instance.activeplayer.currentstate = s;
             }
         }
-        
+
         public void Start()
         {
-           
             GameManager.Instance.activeplayer = GameManager.Instance.playerlist[0];
             GameManager.Instance.activeplayer.currentstate = PlayerStates.INIT;
-         
         }
 
         public void Update()

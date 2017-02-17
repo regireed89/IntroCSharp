@@ -27,7 +27,7 @@ namespace CombatForms
 
         private void EndTurn_Click(object sender, EventArgs e)
         {
-            GameManager.Instance.fsm.ChangeState(PlayerStates.ENDTURN);
+            GameManager.Instance.activeplayer.ToString(); 
             
         }   
      
