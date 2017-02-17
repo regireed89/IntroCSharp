@@ -19,24 +19,31 @@ namespace CombatForms
 
     public class Combat
     {
-        public Combat()
+
+        //new up when we access the property Instance
+        private static Combat instance;
+        //private because someone to new up this instance
+        public Combat() { parties = new List<Party>(); }
+        //this is actually how we access it
+        //how u use it Singleton.Instance."some variable"
+        public static Combat Instance
         {
-            parties = new List<Party>();
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Combat();
+                }
+                return instance;
+            }
         }
         List<Party> parties;
 
         public void AddParty(Party p)
         {
             parties.Add(p);
-
         }
         public Party activeParty;
-        public Party ActiveParty
-        {
-            get { return activeParty; }
-            set { activeParty = value; }
-        }
-
     }
 }
 

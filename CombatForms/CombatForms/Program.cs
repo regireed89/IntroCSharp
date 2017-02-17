@@ -22,7 +22,6 @@ namespace CombatForms
             turn.AddParty(GameManager.Instance.secondparty);
 
 
-
             Party party1 = new Party();
             Player jim = new Player(100, 10, 60);
             Player john = new Player(100, 10, 41);
@@ -56,7 +55,7 @@ namespace CombatForms
             allplayers.Add(billy);
             allplayers.Add(bob);
             allplayers.Add(bo);
-
+          
 
             playerfsm.AddTransiton(PlayerStates.INIT, PlayerStates.IDLE);
             playerfsm.AddTransiton(PlayerStates.IDLE, PlayerStates.ATTACK);
@@ -65,14 +64,17 @@ namespace CombatForms
             playerfsm.AddTransiton(PlayerStates.ENDTURN, PlayerStates.IDLE);
             playerfsm.AddTransiton(PlayerStates.IDLE, PlayerStates.DEAD);
 
-            // allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed));
-            allplayers.Sort((a, b) => a.AttackSpeed.CompareTo(b.AttackSpeed));
-            // allplayers.ForEach(x => Debug.WriteLine(x.AttackSpeed)); 
 
+            party1.Sort();
+            party2.Sort();
+            allplayers.Sort((x, y) => -1 * x.AttackSpeed.CompareTo(y.AttackSpeed));
+            
+
+            GameManager.Instance.fsm = playerfsm;
+            GameManager.Instance.playerlist = allplayers;
             GameManager.Instance.fsm.Start();
             GameManager.Instance.activeplayer.Update();
-            GameManager.Instance.playerlist = allplayers;
-            GameManager.Instance.fsm = playerfsm;
+                        
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

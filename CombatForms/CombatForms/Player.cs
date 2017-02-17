@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CombatForms
 {
@@ -53,53 +54,58 @@ namespace CombatForms
         {
             p.Health -= this.Damage;
         }
+
         public void Initialize()
         {
             this.currentstate = PlayerStates.IDLE;
         }
+
         public void Idle()
         {
             if (this.Health <= 0)
             {
                 this.currentstate = PlayerStates.DEAD;
+                GameManager.Instance.playerlist.Remove(this);
             }
         }
+
         public bool Attack()
         {
             DoDamage(this);
-            GameManager.Instance.activeplayer.currentstate = PlayerStates.INIT;
+            GameManager.Instance.activeplayer.currentstate = PlayerStates.IDLE;
             return true;
         }
+
         public void Dead()
         {
             EndTurn();
         }
+
         public void Update()
         {
-            while (true)
+
+            switch (this.currentstate)
             {
-                switch (this.currentstate)
-                {
-                    case PlayerStates.INIT:
-                        Initialize();
-                        break;
-                    case PlayerStates.IDLE:
-                        Idle();
-                        break;
-                    case PlayerStates.ATTACK:
-                        Attack();
-                        break;
-                    case PlayerStates.DEAD:
-                        Dead();
-                        break;
-                    case PlayerStates.ENDTURN:
-                        Idle();
-                        break;
+                case PlayerStates.INIT:
+                    Initialize();
+                    break;
+                case PlayerStates.IDLE:
+                    Idle();
+                    break;
+                case PlayerStates.ATTACK:
+                    Attack();
+                    break;
+                case PlayerStates.DEAD:
+                    Dead();
+                    break;
+                case PlayerStates.ENDTURN:
+                    EndTurn();
+                    break;
 
-                }
+
+
             }
+
         }
-
-
     }
 }

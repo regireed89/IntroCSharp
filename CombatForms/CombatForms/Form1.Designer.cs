@@ -46,10 +46,10 @@
             this.Player4 = new System.Windows.Forms.Label();
             this.Player5 = new System.Windows.Forms.Label();
             this.Player6 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.PlayerTurn = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // save
@@ -212,15 +212,6 @@
             this.Player6.TabIndex = 17;
             this.Player6.Text = "Player 6";
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(160, 94);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(80, 26);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
             // PlayerTurn
             // 
             this.PlayerTurn.AutoSize = true;
@@ -229,15 +220,6 @@
             this.PlayerTurn.Size = new System.Drawing.Size(61, 13);
             this.PlayerTurn.TabIndex = 19;
             this.PlayerTurn.Text = "Player Turn";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(304, 93);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(79, 27);
-            this.richTextBox2.TabIndex = 20;
-            this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // label1
             // 
@@ -248,15 +230,31 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "active player state";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(160, 94);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(91, 29);
+            this.richTextBox1.TabIndex = 22;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(307, 94);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(97, 29);
+            this.richTextBox2.TabIndex = 23;
+            this.richTextBox2.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 548);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.PlayerTurn);
             this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PlayerTurn);
             this.Controls.Add(this.Player6);
             this.Controls.Add(this.Player5);
             this.Controls.Add(this.Player4);
@@ -302,10 +300,10 @@
         private System.Windows.Forms.Label Player4;
         private System.Windows.Forms.Label Player5;
         private System.Windows.Forms.Label Player6;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label PlayerTurn;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
 
