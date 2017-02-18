@@ -18,7 +18,7 @@ namespace CombatForms
         public Player player5;
         public Player player6;
         public Player activeplayer;
-        public FSM<PlayerStates> fsm;
+        public FSM<GameStates> fsm;
         public List<Player> playerlist;
         
 

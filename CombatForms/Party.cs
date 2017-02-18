@@ -59,7 +59,7 @@ namespace CombatForms
         }      
         public void Sort()
         {
-            players.Sort((x, y) => -1 * x.AttackSpeed.CompareTo(y.AttackSpeed));
+            players.Sort((x, y) =>   x.AttackSpeed.CompareTo(y.AttackSpeed));
             activePlayer = players[currentID];
         }
     }

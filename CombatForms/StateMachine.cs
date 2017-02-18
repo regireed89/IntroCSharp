@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +15,7 @@ namespace CombatForms
         {
             states = new Dictionary<string, State>();
             var e = Enum.GetValues(typeof(T));
-            foreach (var v in e)
+            foreach(var v in e)
             {
                 State s = new State(v as Enum);
                 states.Add(s.name, s);
@@ -25,32 +25,45 @@ namespace CombatForms
         private Dictionary<string, List<State>> transitions = new Dictionary<string, List<State>>();
 
 
-        public void AddTransiton<V>(V current, V next)
+        public void AddTransiton(T current, T next)
         {
             State s1 = new State(current as Enum);
             State s2 = new State(next as Enum);
             List<State> tmp = new List<State>();
             tmp.Add(s1);
             tmp.Add(s2);
-            transitions.Add(tmp[0].name + "->" + tmp[1].name, tmp);
+            transitions.Add(s1.name + "->" + s2.name, tmp);
         }
 
-        public bool ValidTransition()
+        public bool ValidTransition(State s1, State s2)
         {
-            return true;
+            return (transitions.ContainsKey(s1.name + "->" + s2.name));
         }
-        public void ChangeState(PlayerStates s)
+        private State current;
+        public Enum Current
         {
-            if (ValidTransition())
+            get { return current.state_enum; }
+            private set { }
+        }
+        public bool ChangeState(T to)
+        {
+            State next = new State(to as Enum);
+            if(!ValidTransition(current, next))
             {
-                GameManager.Instance.activeplayer.currentstate = s;
+                return false;
             }
+
+
+
+            current = states[next.name];
+            return true;
+
+
         }
 
-        public void Start()
+        public void Start(T state)
         {
-            GameManager.Instance.activeplayer = GameManager.Instance.playerlist[0];
-            GameManager.Instance.activeplayer.currentstate = PlayerStates.INIT;
+            current = states[new State(state as Enum).name];
         }
 
         public void Update()
@@ -67,7 +80,9 @@ namespace CombatForms
         public State(Enum e)
         {
             name = e.ToString();
+            state_enum = e;
         }
         public string name;
+        public Enum state_enum;
     }
 }
