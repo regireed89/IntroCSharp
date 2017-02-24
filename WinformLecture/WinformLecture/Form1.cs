@@ -70,5 +70,7 @@ namespace WinformLecture
             public delegate void LevelUp(Player p);
             public LevelUp levelUp;
         }
+
+       
     }   
 }
